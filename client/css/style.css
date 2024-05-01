@@ -225,7 +225,7 @@
   height: 100%;
   min-height: 500px;
   background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)),
-    url(../img/video.jpg);
+    url(../img/sunrise-video.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -316,6 +316,10 @@
   position: relative;
   max-width: 800px;
   margin: 60px auto 0 auto;
+}
+
+#videoModal .modal-content {
+  padding: 10px;
 }
 
 #videoModal .modal-body {

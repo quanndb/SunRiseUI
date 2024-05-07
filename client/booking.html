@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Hotelier - Hotel HTML Template</title>
+    <title>SunRise hotel</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -111,8 +111,7 @@
               >
                 <div class="navbar-nav mr-auto py-0">
                   <a href="index.html" class="nav-item nav-link">Home</a>
-                  <a href="about.html" class="nav-item nav-link">About</a>
-                  <a href="service.html" class="nav-item nav-link">Services</a>
+                  <a href="hotel.html" class="nav-item nav-link">Branches</a>
                   <a href="room.html" class="nav-item nav-link">Rooms</a>
                   <div class="nav-item dropdown">
                     <a
@@ -166,65 +165,6 @@
         </div>
       </div>
       <!-- Page Header End -->
-
-      <!-- Booking Start -->
-      <div
-        class="container-fluid booking pb-5 wow fadeIn"
-        data-wow-delay="0.1s"
-      >
-        <div class="container">
-          <div class="bg-white shadow" style="padding: 35px">
-            <div class="row g-2">
-              <div class="col-md-10">
-                <div class="row g-2">
-                  <div class="col-md-3">
-                    <div class="date" id="date1" data-target-input="nearest">
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        placeholder="Check in"
-                        data-target="#date1"
-                        data-toggle="datetimepicker"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="date" id="date2" data-target-input="nearest">
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        placeholder="Check out"
-                        data-target="#date2"
-                        data-toggle="datetimepicker"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <select class="form-select">
-                      <option selected>Adult</option>
-                      <option value="1">Adult 1</option>
-                      <option value="2">Adult 2</option>
-                      <option value="3">Adult 3</option>
-                    </select>
-                  </div>
-                  <div class="col-md-3">
-                    <select class="form-select">
-                      <option selected>Child</option>
-                      <option value="1">Child 1</option>
-                      <option value="2">Child 2</option>
-                      <option value="3">Child 3</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary w-100">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Booking End -->
 
       <!-- Booking Start -->
       <div class="container-xxl py-5">
@@ -290,10 +230,21 @@
                     <div class="col-md-6">
                       <div class="form-floating">
                         <input
-                          type="email"
+                          type="text"
+                          class="form-control"
+                          id="phone"
+                          placeholder="Your phonenumber"
+                        />
+                        <label for="phone">Your Phonenumber</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <input
+                          type="text"
                           class="form-control"
                           id="email"
-                          placeholder="Your Email"
+                          placeholder="Your email"
                         />
                         <label for="email">Your Email</label>
                       </div>

@@ -3,6 +3,10 @@ import reviews from "../../mock/reviews.js";
 (function ($) {
   $(document).ready(function () {
     var idx;
+
+    var liked = false;
+    var disliked = false;
+
     render();
     $(document).on("click", "#btnSubmit", function () {
       idx = $(this).attr("idx");
@@ -10,16 +14,55 @@ import reviews from "../../mock/reviews.js";
       let user = reviews[idx - 1].username;
       $("#comment-label").html(`Comment ${user}`);
     });
+
     $(document).on("click", "#like", function () {
       idx = $(this).attr("idx");
+      liked = reviews[idx - 1].isLike;
+      disliked = reviews[idx - 1].isDislike;
 
-      reviews[idx - 1].like++;
+      if (!liked) {
+        if (disliked) {
+          reviews[idx - 1].disLike--;
+          reviews[idx - 1].isDislike = false;
+          reviews[idx - 1].isLike = true;
+          reviews[idx - 1].like++;
+        } else {
+          reviews[idx - 1].like++;
+          reviews[idx - 1].isLike = true;
+          reviews[idx - 1].isDislike = false;
+        }
+      } else {
+        reviews[idx - 1].like--;
+        reviews[idx - 1].isLike = false;
+        reviews[idx - 1].isDislike = false;
+      }
       render();
     });
+
     $(document).on("click", "#dislike", function () {
       idx = $(this).attr("idx");
+      liked = reviews[idx - 1].isLike;
+      disliked = reviews[idx - 1].isDislike;
+      
+      if (!disliked) {
+        if (liked) {
+          reviews[idx - 1].like--;
+          reviews[idx - 1].isLike = false;
+          reviews[idx - 1].isDislike = true;
+          reviews[idx - 1].disLike++;
+        } 
+        else {
+          reviews[idx - 1].disLike++;
+          reviews[idx - 1].isDislike = true;
+          reviews[idx - 1].isLike = false;
+        }
 
-      reviews[idx - 1].disLike++;
+      } 
+      else {
+        reviews[idx - 1].disLike--;
+        reviews[idx - 1].isDislike = false;
+        reviews[idx - 1].isLike = false;
+      }
       render();
     });
 
@@ -80,14 +123,14 @@ import reviews from "../../mock/reviews.js";
 
               <p>
                 <span class="me-3"
-                  ><i class="fa-solid fa-thumbs-up" idx=${
-                    item.id
-                  } id="like"></i> ${item.like}</span
+                  ><i class="fa-solid fa-thumbs-up ${
+                    item.isLike ? "text-primary" : ""
+                  }" idx=${item.id} id="like"></i> ${item.like}</span
                 >
                 <span class="me-3"
-                  ><i class="fa-solid fa-thumbs-down"  idx=${
-                    item.id
-                  } id="dislike"></i> ${item.disLike}</span
+                  ><i class="fa-solid fa-thumbs-down ${
+                    item.isDislike ? "text-primary" : ""
+                  }"  idx=${item.id} id="dislike"></i> ${item.disLike}</span
                 >
                 <a class="text-decoration-underline" idx=${
                   item.id

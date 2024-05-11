@@ -19,6 +19,8 @@ const reviews = [
       "Dịch vụ ok, giá cả hợp lý Dịch vụ ok, giá cả hợp lý Dịch vụ ok, giá cả hợp lý",
     like: 100,
     disLike: 35,
+    isLike: false,
+    isDislike: false,
     reply: [
       {
         id: 1,
@@ -46,6 +48,8 @@ const reviews = [
     comment: "Tất cả đều ok, trừ nhà tắm!",
     like: 100,
     disLike: 35,
+    isLike: false,
+    isDislike: false,
     reply: [
       {
         id: 1,
@@ -75,6 +79,8 @@ const reviews = [
     comment: "Tất cả đều ok, trừ nhà tắm!",
     like: 100,
     disLike: 35,
+    isLike: false,
+    isDislike: false,
     reply: [
       {
         id: 1,

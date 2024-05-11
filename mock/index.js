@@ -4,7 +4,6 @@ import rooms from "./rooms.js";
 (function ($) {
   $(document).ready(function () {
     var container = $('.rooms');
-
     rooms.forEach(function(room) {
       var roomItem = `
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -26,7 +25,7 @@ import rooms from "./rooms.js";
               </div>
               <p class="text-body mb-3">${room.description}</p>
               <div class="d-flex justify-content-between">
-                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/client/roomDetail.html">Xem Chi Tiết</a>
+                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/client/roomDetail.html?id=${room.id}">Xem Chi Tiết</a>
                 <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Đặt Ngay</a>
               </div>
             </div>

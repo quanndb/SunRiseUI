@@ -9,6 +9,16 @@ const ROOMS = [
     isActive: true,
     price: 3,
     rate: 3,
+    images: [
+      {
+        id: "0",
+        img: "../img/carousel-1.jpg",
+      },
+      {
+        id: "1",
+        img: "../img/carousel-1.jpg",
+      },
+    ],
   },
   {
     id: "1",
@@ -20,6 +30,7 @@ const ROOMS = [
     isActive: false,
     price: 5,
     rate: 3,
+    images: [{}],
   },
   {
     id: "2",
@@ -31,6 +42,7 @@ const ROOMS = [
     isActive: true,
     price: 3,
     rate: 4,
+    images: [{}],
   },
   {
     id: "3",
@@ -42,6 +54,7 @@ const ROOMS = [
     isActive: false,
     price: 5,
     rate: 4,
+    images: [{}],
   },
   {
     id: "4",
@@ -53,6 +66,7 @@ const ROOMS = [
     isActive: true,
     price: 3,
     rate: 5,
+    images: [{}],
   },
   {
     id: "5",
@@ -64,6 +78,7 @@ const ROOMS = [
     isActive: true,
     price: 12,
     rate: 5,
+    images: [{}],
   },
 ];
 export default ROOMS;

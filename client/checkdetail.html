@@ -112,7 +112,7 @@
                 <div class="navbar-nav mr-auto py-0">
                   <a href="index.html" class="nav-item nav-link">Home</a>
                   <a href="hotel.html" class="nav-item nav-link">Branches</a>
-                  <a href="room.html" class="nav-item nav-link">Rooms</a>
+                  <a href="room.html" class="nav-item nav-link active">Rooms</a>
                   <div class="nav-item dropdown">
                     <a
                       href="#"
@@ -122,9 +122,7 @@
                     >
                     <div class="dropdown-menu rounded-0 m-0">
                       <a href="booking.html" class="dropdown-item">Booking</a>
-                      <a href="team.html" class="dropdown-item active"
-                        >Our Team</a
-                      >
+                      <a href="team.html" class="dropdown-item">Our Team</a>
                       <a href="testimonial.html" class="dropdown-item"
                         >Testimonial</a
                       >
@@ -158,7 +156,7 @@
         <div class="container-fluid page-header-inner py-5">
           <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-              Our Team
+              Rooms
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
@@ -168,7 +166,7 @@
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  Our Team
+                  Rooms
                 </li>
               </ol>
             </nav>
@@ -236,215 +234,130 @@
       </div>
       <!-- Booking End -->
 
-      <!-- Team Start -->
-      <div class="container-xxl py-5">
+      <!-- Room Start -->
+      <div class="container-xxl py-5 roomDetail">
         <div class="container">
           <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">
-              Our Team
+              Room Detail
             </h6>
             <h1 class="mb-5">
-              Explore Our
-              <span class="text-primary text-uppercase">Staffs</span>
+              Explore Our <span class="text-primary text-uppercase">Rooms</span>
             </h1>
           </div>
-          <div class="row g-4">
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-1.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
+          <div class="row g-4" id="roomDetailContainer">
+            <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-md-column flex-lg-row" data-wow-delay="0.1s">
+              <div class="position-relative">
+                <img
+                  class="img-fluid mb-2 img-show-room"
+                  style="height: 400px;"
+                  src="img/room-1.jpg"
+                  alt="${room.roomName}"
+                />
+                <div class="swiper-img">
+                    <div class="d-flex">
+                        <img
+                      class="img-fluid img-content me-2"
+                      style="height: 100px; width: 100px;"
+                      src="img/room-1.jpg"
+                      alt="${room.roomName}"
+                    />
+                    <img
+                        class="img-fluid img-content me-2"
+                        style="height: 100px; width: 100px;"
+                        src="img/room-2.jpg"
+                        alt="${room.roomName}"
+                      />
+                    <img
+                        class="img-fluid img-content"
+                        style="height: 100px; width: 100px;"
+                        src="img/room-3.jpg"
+                        alt="${room.roomName}"
+                      />
                   </div>
                 </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
+              </div>
+              
+
+            
+
+
+          </div>
+          <div class="col-lg-6 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class=" ">
+              <div class="d-flex justify-content-between mb-3">
+                <h5 class="mb-0">Deluxe</h5>
+              </div>
+              <div class="mb-2">
+                <small class="fa fa-star text-primary"></small>
+                <small class="fa fa-star text-primary"></small>
+                <small class="fa fa-star text-primary"></small>
+                <small class="fa fa-star text-primary"></small>
+                <small class="fa fa-star text-primary"></small>
+              </div>
+              <div class="d-flex mb-3">
+                <small class="border-end me-3 pe-3"
+                  ><i class="fa fa-bed text-primary me-2"></i>Giường Đôi</small
+                >
+                <small class="border-end me-3 pe-3"
+                  ><i class="fa fa-bath text-primary me-2"></i>
+                </small>
+                <small
+                  ><i class="fa fa-wifi text-primary me-2"></i>Wifi</small
+                >
+              </div>
+              <p class="text-body mb-3">
+                Bao gồm 1 giường đôi và bồn tắm, nội thất sang trọng, ấm cúng, không gian tiện nghi của phòng Deluxe sẽ mang đến cho bạn những trải nghiệm tuyệt vời.</p>
+
+              <!-- <small
+                class="translate-middle-y bg-primary text-white rounded py-1 px-3"
+                >5 Triệu vnđ/Đêm</small
+              > -->
+
+              <div class="row ms-1 mt-3">
+                <div class="row"><span class="fw-bold">AMENITIES</span>
+                    <p> Area: 32 m2</p>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Room key card</li>
+                        <li>1 double bed size 1.8m or 2 single beds size 1.4m</li>
+                        <li>Fire Alarm Systems</li>
+                        <li>32” LCD TV</li>
+                        <li>HD Cable TV</li>
+                        <li>Work Desk</li>
+                        <li>Makeup Table</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Room key card</li>
+                        <li>1 double bed size 1.8m or 2 single beds size 1.4m</li>
+                        <li>Fire Alarm Systems</li>
+                        <li>32” LCD TV</li>
+                        <li>HD Cable TV</li>
+                        <li>Work Desk</li>
+                        <li>Makeup Table</li>
+                    </ul>
                 </div>
               </div>
+              
             </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-2.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
+            <div class="d-flex align-items-center justify-content-between mt-4 col-lg-12 col-md-12">
+                <div class="col-md-3">
+                    RoomPrice
                 </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
+                <div class="col-md-3">
+                    From 1.390.000 / day
                 </div>
+                <a class="btn btn-sm btn-dark rounded py-2 px-4 col-md-4 " href=""
+                  >Đặt ngay</a
+                >
               </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-3.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-4.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-2.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-3.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-4.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-              <div class="rounded shadow overflow-hidden">
-                <div class="position-relative">
-                  <img class="img-fluid" src="img/team-1.jpg" alt="" />
-                  <div
-                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center"
-                  >
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-square btn-primary mx-1" href=""
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="text-center p-4 mt-3">
-                  <h5 class="fw-bold mb-0">Full Name</h5>
-                  <small>Designation</small>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <!-- Team End -->
+      <!-- Room End -->
 
       <!-- Newsletter Start -->
       <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -475,7 +388,6 @@
         </div>
       </div>
       <!-- Newsletter Start -->
-
       <!-- Footer Start -->
       <div
         class="container-fluid bg-dark text-light footer wow fadeIn"
@@ -600,7 +512,26 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script type="module" src="js/detailRoom.js"></script>
     <script src="js/login.js"></script>
 
+    
   </body>
+  <script>
+    (function ($) {
+$(document).ready(function () {
+    $(".img-content").mousemove(function() {
+
+        $(".img-show-room").attr("src", $(this).attr("src"));
+
+        $(this).css("border", "1px solid red")
+    })
+    $(".img-content").mouseleave(function() {
+
+
+        $(this).css("border", "none")
+    })
+});
+})(jQuery);
+</script>
 </html>

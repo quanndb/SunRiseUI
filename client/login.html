@@ -183,11 +183,14 @@
               </div>
               <div class="col-10 d-flex justify-content-between mt-3">
                 <p>Chưa có tài khoản? <a href="signup.html">Đăng ký ngay</a></p>
-
                 <p><a href="">Quên mật khẩu?</a></p>
               </div>
+              <div id="error-message" class="text-danger col-10 d-flex"></div>
+
               <div class="col-10 d-flex justify-content-center mt-3">
-                <button class="btn btn-primary w-75">Login</button>
+                <button class="btn btn-primary w-75" id="login-btn">
+                  Login
+                </button>
               </div>
             </div>
           </div>
@@ -351,7 +354,9 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <script type="module" src="js/data.js"></script>
     <script type="module" src="../mock/index.js"></script>
+    <script type="module" src="js/checklogin.js"></script>
+
   </body>
+
 </html>

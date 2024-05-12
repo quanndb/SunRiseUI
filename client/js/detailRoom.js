@@ -1,14 +1,14 @@
-import ROOMS from "./rooms.js";
+import ROOMS from "../../mock/rooms.js"
 (function ($) {
   $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const roomId = urlParams.get("id");
     var container = $("#roomDetailContainer");
 
+    console.log(roomId);
     ROOMS.forEach(function (room) {
       if (room.id == roomId) {
         const roomDetail = `
-
               <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                   <div class="position-relative">
                           <img class="img-fluid" src="img/room-${

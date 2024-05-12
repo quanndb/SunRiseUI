@@ -6,7 +6,21 @@ const accounts = [
     password: "quandeptrai",
     fullname: "Nguyễn Anh Quân",
     gender: "Male",
-    role: ROLE[Math.floor(Math.random()) * ROLE.length],
+    role: ROLE[1],
+  },
+  {
+    username: "quanvm",
+    password: "quandeptrai",
+    fullname: "Vũ Minh Quân",
+    gender: "Male",
+    role: ROLE[1],
+  },
+  {
+    username: "kietnt",
+    password: "quandeptrai",
+    fullname: "Nguyễn Tuấn Kiệt",
+    gender: "Male",
+    role: ROLE[1],
   },
 ];
 

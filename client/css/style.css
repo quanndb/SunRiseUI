@@ -88,10 +88,20 @@
   color: var(--primary);
 }
 
+.auth-group {
+  right: 10px;
+  top: 18px;
+}
+
 @media (max-width: 991.98px) {
   .navbar-dark .navbar-nav .nav-link {
     margin-right: 0;
     padding: 10px 0;
+  }
+
+  .auth-group {
+    right: 80px;
+    top: 24px;
   }
 }
 
@@ -183,7 +193,7 @@
   display: none;
 }
 
-/*** Branche ***/
+/*** Branches ***/
 #branch-section {
   background-image: url(../img/hotel3.jpg);
   background-position: 50% 50%;

@@ -122,7 +122,7 @@
                     >
                     <div class="dropdown-menu rounded-0 m-0">
                       <a href="booking.html" class="dropdown-item">Booking</a>
-                      <a href="team.html" class="dropdown-item">Our Team</a>
+                      <a href="#" class="dropdown-item">Our Team</a>
                       <a href="testimonial.html" class="dropdown-item"
                         >Testimonial</a
                       >
@@ -142,6 +142,18 @@
                   <button class="btn btn-secondary mx-1">Signup</button>
                 </a>
               </div>
+
+
+              <!-- <div
+                class="d-flex justify-content-end position-absolute auth-group"
+              >
+                <a href="login.html">
+                  <button class="btn btn-primary mx-1">Login</button>
+                </a>
+                <a href="signup.html">
+                  <button class="btn btn-secondary mx-1">Signup</button>
+                </a>
+              </div> -->
             </nav>
           </div>
         </div>
@@ -245,7 +257,7 @@
               Explore Our <span class="text-primary text-uppercase">Rooms</span>
             </h1>
           </div>
-          <div class="row g-4" id="roomDetailContainer">
+          <div class="row g-4 justify-content-center" id="roomDetailContainer">
             <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-md-column flex-lg-row" data-wow-delay="0.1s">
               <div class="position-relative">
                 <img
@@ -283,8 +295,8 @@
 
 
           </div>
-          <div class="col-lg-6 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class=" ">
+          <div class="col-lg-6 col-md-4 wow fadeInUp " data-wow-delay="0.1s">
+            <div class="">
               <div class="d-flex justify-content-between mb-3">
                 <h5 class="mb-0">Deluxe</h5>
               </div>
@@ -344,11 +356,11 @@
               
             </div>
             <div class="d-flex align-items-center justify-content-between mt-4 col-lg-12 col-md-12">
-                <div class="col-md-3">
-                    RoomPrice
-                </div>
-                <div class="col-md-3">
-                    From 1.390.000 / day
+                <div class="col-md-6">
+                    Room Price from: 
+                    <span class="col-md-3 text-primary fw-bold">
+                        1.390.000 <sup>đ</sup> / day
+                    </span>
                 </div>
                 <a class="btn btn-sm btn-dark rounded py-2 px-4 col-md-4 " href=""
                   >Đặt ngay</a
@@ -527,8 +539,6 @@ $(document).ready(function () {
         $(this).css("border", "1px solid red")
     })
     $(".img-content").mouseleave(function() {
-
-
         $(this).css("border", "none")
     })
 });

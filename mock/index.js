@@ -26,7 +26,7 @@ import rooms from "./rooms.js";
               <p class="text-body mb-3">${room.description}</p>
               <div class="d-flex justify-content-between">
                 <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/client/roomDetail.html?id=${room.id}">Xem Chi Tiết</a>
-                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Đặt Ngay</a>
+                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="booking.html">Đặt Ngay</a>
               </div>
             </div>
           </div>

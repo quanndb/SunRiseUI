@@ -14,7 +14,7 @@
         window.location.href = "index.html";
       });
 
-      var usernameElement = $("<p></p>", {
+      var usernameElement = $("<a></a>", {
         class: "me-2 mb-0 text-center text-primary fw-bold fs-5",
 
         text: savedUsername.fullname,

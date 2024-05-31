@@ -1,6 +1,5 @@
-
-import rooms from "../../mock/rooms.js";
-import bookings from "../../mock/bookings.js"
+import rooms from "./rooms.js";
+import bookings from "./bookings.js"
 
 (function ($) {
   $(document).ready(function () {
@@ -60,11 +59,8 @@ import bookings from "../../mock/bookings.js"
       const room = rooms.find((r) => r.id == roomId);
       localStorage.setItem("selectedRoom", JSON.stringify(room));
 
-      const bookingInfo = {
-        description: room.description,
-        bedType: room.bedType,
-        roomName: room.roomName,
-      };
+     
+      const bookId = bookings.find((r) => r.id == bookId);
       localStorage.setItem("bookingInfo", JSON.stringify(bookingInfo));
       window.location.href = "booking.html";
     });

@@ -16,7 +16,9 @@
 
       var usernameElement = $("<p></p>", {
         class: "me-2 mb-0 text-center text-primary fw-bold fs-5",
+
         text: savedUsername.fullname,
+        href: "userProfile.html",
       });
 
       var authInfo = $("<div></div>", {

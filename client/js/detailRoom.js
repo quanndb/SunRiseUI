@@ -10,62 +10,12 @@ import ROOMS from "../../mock/rooms.js";
     ROOMS.forEach(function (room) {
       if (room.id == roomId) {
         const roomDetail = `
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                  <div class="position-relative">
-                          <img class="img-fluid" src="img/room-${
-                            room.id
-                          }.jpg" alt="${room.roomName}">
-                    </div>
-                </div>
-
-              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                      
-                      <div class=" ">
-                          <div class="d-flex justify-content-between mb-3">
-                              <h5 class="mb-0">${room.roomName}</h5>
-                              
-                          </div>
-                          <div class="mb-2">
-                                  ${Array.from(
-                                    { length: room.rate },
-                                    (_, index) =>
-                                      `<small class="fa fa-star text-primary"></small>`
-                                  ).join("")}
-                              </div>
-                          <div class="d-flex mb-3">
-                              <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Giường ${
-                                room.bedType
-                              }</small>
-                              <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>
-                              
-                            
-                              </small>
-                              <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                          </div>
-                          <p class="text-body mb-3">${room.description}</p>
-
-
-                          <small class=" translate-middle-y bg-primary text-white rounded py-1 px-3 ">${
-                            room.price
-                          } Triệu vnđ/Đêm</small>
-
-
-                          <div class="d-flex justify-content-between mt-4">                
-                              <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                          </div>
-                      </div>
-                  </div>
-
-            
-                  
-          `;
-        const detail = `
           <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-md-column flex-lg-row" data-wow-delay="0.1s">
               <div class="position-relative">
                 <img
                   class="img-fluid mb-2 img-show-room"
                   style="height: 400px;"
-                  src="img/room-1.jpg"
+                  src="img/room-${room.id}.jpg"
                   alt="${room.roomName}"
                 />
                 <div class="swiper-img">
@@ -91,46 +41,28 @@ import ROOMS from "../../mock/rooms.js";
                   </div>
                 </div>
               </div>
-              
-
-            
-
-
           </div>
-          <div class="col-lg-6 col-md-4 wow fadeInUp " data-wow-delay="0.1s">
-            <div class="">
+          <div class="col-lg-6 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div>
               <div class="d-flex justify-content-between mb-3">
-                <h5 class="mb-0">Deluxe</h5>
+                <h5 class="mb-0">${room.roomName}</h5>
               </div>
               <div class="mb-2">
-                <small class="fa fa-star text-primary"></small>
-                <small class="fa fa-star text-primary"></small>
-                <small class="fa fa-star text-primary"></small>
-                <small class="fa fa-star text-primary"></small>
-                <small class="fa fa-star text-primary"></small>
+                ${Array.from(
+                  { length: room.rate },
+                  (_, index) => `<small class="fa fa-star text-primary"></small>`
+                ).join("")}
               </div>
               <div class="d-flex mb-3">
-                <small class="border-end me-3 pe-3"
-                  ><i class="fa fa-bed text-primary me-2"></i>Giường Đôi</small
-                >
-                <small class="border-end me-3 pe-3"
-                  ><i class="fa fa-bath text-primary me-2"></i>
-                </small>
-                <small
-                  ><i class="fa fa-wifi text-primary me-2"></i>Wifi</small
-                >
+                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Giường ${room.bedType}</small>
+                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i></small>
+                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
               </div>
-              <p class="text-body mb-3">
-                Bao gồm 1 giường đôi và bồn tắm, nội thất sang trọng, ấm cúng, không gian tiện nghi của phòng Deluxe sẽ mang đến cho bạn những trải nghiệm tuyệt vời.</p>
-
-              <!-- <small
-                class="translate-middle-y bg-primary text-white rounded py-1 px-3"
-                >5 Triệu vnđ/Đêm</small
-              > -->
-
+              <p class="text-body mb-3">${room.description}</p>
+              <small class="translate-middle-y bg-primary text-white rounded py-1 px-3">${room.price} Triệu vnđ/Đêm</small>
               <div class="row ms-1 mt-3">
                 <div class="row"><span class="fw-bold">AMENITIES</span>
-                    <p> Area: 32 m2</p>
+                  <p>Area: 32 m2</p>
                 </div>
                 <div class="col-md-6">
                     <ul>
@@ -155,22 +87,36 @@ import ROOMS from "../../mock/rooms.js";
                     </ul>
                 </div>
               </div>
-              
-            </div>
-            <div class="d-flex align-items-center justify-content-between mt-4 col-lg-12 col-md-12">
+              <div class="d-flex align-items-center justify-content-between mt-4 col-lg-12 col-md-12">
                 <div class="col-md-6">
                     Room Price from: 
                     <span class="col-md-3 text-primary fw-bold">
-                        1.390.000 <sup>đ</sup> / day
+                        ${room.price} <sup>đ</sup> / day
                     </span>
                 </div>
-                <a class="btn btn-sm btn-dark rounded py-2 px-4 col-md-4 " href="booking.html"
-                  >Đặt ngay</a
-                >
+                <a class="btn btn-sm btn-dark rounded py-2 px-4 ${room.isActive ? "" : "disabled"}" href="booking.html" id="bookNowBtn" data-room-id="${room.id}">Đặt ngay</a>
               </div>
+            </div>
           </div>`;
-        container.append(detail);
+        container.append(roomDetail);
       }
+    });
+
+    // swiper
+    $(".img-content").mousemove(function () {
+      $(".img-show-room").attr("src", $(this).attr("src"));
+      $(this).css("border", "1px solid red");
+    });
+    $(".img-content").mouseleave(function () {
+      $(this).css("border", "none");
+    });
+
+    $(document).on("click", "#bookNowBtn", function (e) {
+      e.preventDefault();
+      const roomId = $(this).data("room-id");
+      const room = ROOMS.find((r) => r.id == roomId);
+      localStorage.setItem("selectedRoom", JSON.stringify(room));
+      window.location.href = "booking.html";
     });
   });
 })(jQuery);

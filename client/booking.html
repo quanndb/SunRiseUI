@@ -136,9 +136,9 @@
                           type="text"
                           class="form-control"
                           id="phone"
-                          placeholder="Your phonenumber"
+                          placeholder="Your Phone"
                         />
-                        <label for="phone">Your Phonenumber</label>
+                        <label for="phone">Your Phone</label>
                       </div>
                     </div>
                     <div class="col-12">
@@ -147,7 +147,7 @@
                           type="text"
                           class="form-control"
                           id="email"
-                          placeholder="Your email"
+                          placeholder="Your Email"
                         />
                         <label for="email">Your Email</label>
                       </div>
@@ -263,5 +263,44 @@
     <!-- Template Javascript -->
     <script type="module" src="js/main.js"></script>
     <script src="js/login.js"></script>
+
+    <script>
+      (function ($) {
+        $(document).ready(function () {
+          const selectedRoom = JSON.parse(localStorage.getItem("selectedRoom"));
+          console.log("Retrieved selectedRoom:", selectedRoom);
+          
+
+          const selectedUser = JSON.parse(localStorage.getItem("user"));
+
+          const selectedBookInfo = JSON.parse(localStorage.getItem("bookingInfo"));
+          if (selectedRoom) {
+            $("#name").val(selectedUser.fullname || "");
+            $("#phone").val(selectedUser.phone || "");
+            $("#email").val(selectedUser.email || "");
+
+           
+            $("#select1").val(selectedBookInfo.adults || "1");
+            $("#select2").val(selectedBookInfo.children || "1");
+            $("#select3").val(selectedRoom.branch || "1");
+            $("#select4").val(selectedRoom.roomName);
+            $("#message").val(selectedRoom.specialRequest || "");
+
+            if (selectedRoom.price) {
+              $("#roomPrice").text(selectedRoom.price + " Triệu vnđ/Đêm");
+            }
+          } else {
+            console.log("No room data found in localStorage.");
+          }
+
+          $("#date3").datetimepicker({
+            format: "L",
+          });
+          $("#date4").datetimepicker({
+            format: "L",
+          });
+        });
+      })(jQuery);
+    </script>
   </body>
 </html>

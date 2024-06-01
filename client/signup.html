@@ -158,11 +158,17 @@
                   <label for="phone">Your Phonenumber</label>
                 </div>
               </div>
+              <div
+                id="error-message"
+                class="text-danger col-10 d-flex justify-content-start mt-3"
+              ></div>
               <div class="col-10 d-flex justify-content-start mt-3">
                 <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
               </div>
               <div class="col-10 d-flex justify-content-center mt-3">
-                <button class="btn btn-primary w-75">Signup</button>
+                <button class="btn btn-primary w-75" id="signup-btn">
+                  Signup
+                </button>
               </div>
               <div class="col-10 d-flex justify-content-center mt-3">
                 <p>
@@ -188,7 +194,6 @@
 
     <!-- Template Javascript -->
     <script type="module" src="js/main.js"></script>
-
-    <!-- <script type="module" src="js/data.js"></script> -->
+    <script type="module" src="js/signup.js"></script>
   </body>
 </html>

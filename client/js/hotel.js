@@ -3,6 +3,9 @@ import hotels from "../../mock/hotels.js";
 (function ($) {
   $(document).ready(function () {
     hotels.forEach((item, index) => {
+      $("#branch").append(`
+      <option value="${item.name}">${item.name}</option>
+      `);
       if (index == 0) {
         $(".carousel-inner.hotel").append(`<div class="carousel-item active">
         <div class="bg-dark branch-container row p-5 gx-5">

@@ -70,7 +70,7 @@
       <!-- Page Header End -->
 
       <!-- Booking Start -->
-      <div class="container-xxl py-5">
+      <div class="container-xxl py-5 mb-5">
         <div class="container">
           <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">
@@ -159,7 +159,7 @@
                         data-target-input="nearest"
                       >
                         <input
-                          type="text"
+                          type="date"
                           class="form-control datetimepicker-input"
                           id="checkin"
                           placeholder="Check In"
@@ -176,7 +176,7 @@
                         data-target-input="nearest"
                       >
                         <input
-                          type="text"
+                          type="date"
                           class="form-control datetimepicker-input"
                           id="checkout"
                           placeholder="Check Out"
@@ -188,42 +188,34 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <select class="form-select" id="select1">
+                        <select class="form-select" id="adult">
                           <option value="1">Adult 1</option>
                           <option value="2">Adult 2</option>
                           <option value="3">Adult 3</option>
                         </select>
-                        <label for="select1">Select Adult</label>
+                        <label for="adult">Select Adult</label>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-floating">
-                        <select class="form-select" id="select2">
+                        <select class="form-select" id="child">
                           <option value="1">Child 1</option>
                           <option value="2">Child 2</option>
                           <option value="3">Child 3</option>
                         </select>
-                        <label for="select2">Select Child</label>
+                        <label for="child">Select Child</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <select class="form-select" id="select3">
-                          <option value="1">Branch 1</option>
-                          <option value="2">Branch 2</option>
-                          <option value="3">Branch 3</option>
-                        </select>
-                        <label for="select3">Select A Branch</label>
+                        <select class="form-select" id="branch"></select>
+                        <label for="branch">Select A Branch</label>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <select class="form-select" id="select4">
-                          <option value="1">Room 1</option>
-                          <option value="2">Room 2</option>
-                          <option value="3">Room 3</option>
-                        </select>
-                        <label for="select3">Select A Room</label>
+                        <select class="form-select" id="room"></select>
+                        <label for="room">Select A Room</label>
                       </div>
                     </div>
                     <div class="col-12">
@@ -237,8 +229,13 @@
                         <label for="message">Special Request</label>
                       </div>
                     </div>
+                    <div class="col-12 error-message text-danger"></div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100 py-3" type="submit">
+                      <button
+                        class="btn btn-primary w-100 py-3"
+                        type="submit"
+                        id="submit-booking"
+                      >
                         Book Now
                       </button>
                     </div>
@@ -262,45 +259,9 @@
 
     <!-- Template Javascript -->
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/hotel.js"></script>
+    <script type="module" src="js/roomsResolver.js"></script>
+    <script type="module" src="js/booking.js"></script>
     <script src="js/login.js"></script>
-
-    <script>
-      (function ($) {
-        $(document).ready(function () {
-          const selectedRoom = JSON.parse(localStorage.getItem("selectedRoom"));
-          console.log("Retrieved selectedRoom:", selectedRoom);
-          
-
-          const selectedUser = JSON.parse(localStorage.getItem("user"));
-
-          const selectedBookInfo = JSON.parse(localStorage.getItem("bookingInfo"));
-          if (selectedRoom) {
-            $("#name").val(selectedUser.fullname || "");
-            $("#phone").val(selectedUser.phone || "");
-            $("#email").val(selectedUser.email || "");
-
-           
-            $("#select1").val(selectedBookInfo.adults || "1");
-            $("#select2").val(selectedBookInfo.children || "1");
-            $("#select3").val(selectedRoom.branch || "1");
-            $("#select4").val(selectedRoom.roomName);
-            $("#message").val(selectedRoom.specialRequest || "");
-
-            if (selectedRoom.price) {
-              $("#roomPrice").text(selectedRoom.price + " Triệu vnđ/Đêm");
-            }
-          } else {
-            console.log("No room data found in localStorage.");
-          }
-
-          $("#date3").datetimepicker({
-            format: "L",
-          });
-          $("#date4").datetimepicker({
-            format: "L",
-          });
-        });
-      })(jQuery);
-    </script>
   </body>
 </html>

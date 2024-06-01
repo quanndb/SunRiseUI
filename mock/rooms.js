@@ -19,6 +19,7 @@ const ROOMS = [
         img: "../img/carousel-1.jpg",
       },
     ],
+    price: "1.00",
   },
   {
     id: "1",
@@ -31,6 +32,7 @@ const ROOMS = [
     price: 5,
     rate: 3,
     images: [{}],
+    price: "1.50",
   },
   {
     id: "2",
@@ -43,6 +45,7 @@ const ROOMS = [
     price: 3,
     rate: 4,
     images: [{}],
+    price: "2.00",
   },
   {
     id: "3",
@@ -55,6 +58,7 @@ const ROOMS = [
     price: 5,
     rate: 4,
     images: [{}],
+    price: "2.50",
   },
   {
     id: "4",
@@ -67,6 +71,7 @@ const ROOMS = [
     price: 3,
     rate: 5,
     images: [{}],
+    price: "3.00",
   },
   {
     id: "5",
@@ -79,6 +84,7 @@ const ROOMS = [
     price: 12,
     rate: 5,
     images: [{}],
+    price: "3.50",
   },
 ];
 export default ROOMS;

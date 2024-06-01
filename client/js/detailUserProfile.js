@@ -2,11 +2,9 @@ import ACCOUNTS from "../../mock/accounts.js";
 
 (function ($) {
   $(document).ready(function () {
-    var userID = JSON.parse(localStorage.getItem("user")).id;
+    var item = JSON.parse(localStorage.getItem("user"));
 
-    ACCOUNTS.forEach((item, id) => {
-      if (item.id === userID) {
-        $(".userProfile").append(`
+    $(".userProfile").append(`
         <div class="col-md-6 border-right">
           <div
             class="d-flex flex-column align-items-center text-center p-3 py-5"
@@ -15,11 +13,11 @@ import ACCOUNTS from "../../mock/accounts.js";
               class="rounded-circle mt-5"
               width="200px"
               height="200px"
-              src="img/initimageprofile.jpg"
+              src="${item.avatar ? item.avatar : "img/initimageprofile.jpg"}"
               id="imgprofile"
             />
             <input type="file" id="fileInput" class="d-none " accept="image/*">
-            <span class="font-weight-bold">${item.fullname}</span
+            <span class="font-weight-bold">${item.username}</span
             ><span class="text-black-50">${item.email}</span
             ><span> </span>
           </div>
@@ -38,6 +36,7 @@ import ACCOUNTS from "../../mock/accounts.js";
                       type="text"
                       class="form-control"
                       placeholder=""
+                      id="fullname"
                       value="${item.fullname}"
                     />
                   </div>
@@ -48,20 +47,20 @@ import ACCOUNTS from "../../mock/accounts.js";
                     <label class="labels">Mobile Number</label
                     ><input
                       type="text"
-                      class="form-control"
+                      class="form-control mb-3"
                       placeholder=""
+                      id="phone"
                       value="${item.phone}"
                     />
                   </div>
                   
                   <div class="col-md-12">
-                    <label class="labels">Gender</label
-                    ><input
-                      type="text"
-                      class="form-control"
-                      placeholder="Gender"
-                      value="${item.gender}"
-                    />
+                    <label class="labels">Gender</label>
+                    <select class="form-select mb-3" id="gender" >
+                      <option value="">Choose Gender</option>
+                      <option value="Male" selected>Male</option>
+                      <option value="Female">Female</option>
+                    </select>
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Email</label
@@ -69,6 +68,7 @@ import ACCOUNTS from "../../mock/accounts.js";
                       type="text"
                       class="form-control"
                       placeholder="enter email"
+                      id="email"
                       value="${item.email}"
                     />
                   </div>
@@ -80,6 +80,7 @@ import ACCOUNTS from "../../mock/accounts.js";
                       type="text"
                       class="form-control"
                       placeholder="Address"
+                      id="address"
                       value="${item.address}"
                     />
                   </div>
@@ -88,8 +89,9 @@ import ACCOUNTS from "../../mock/accounts.js";
                     ><input
                       type="text"
                       class="form-control"
-                      value=""
-                      placeholder="${item.national}"
+                      placeholder="National"
+                      id="national"
+                      value="${item.national}"
                     />
                   </div>
                 </div>
@@ -99,25 +101,41 @@ import ACCOUNTS from "../../mock/accounts.js";
                   </button>
                 </div>       
       </div>
-        `); 
-        
-        // Sự kiện khi nhấp vào ảnh hồ sơ
-        $("#imgprofile").on("click", function () {
-          $("#fileInput").click();
-        });
+        `);
+    $("#gender").val(item.gender);
 
-        // Sự kiện khi người dùng chọn tệp mới
-        $("#fileInput").on("change", function (event) {
-          var file = event.target.files[0];
-          if (file) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              $("#imgprofile").attr("src", e.target.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-      }
+    // Sự kiện khi nhấp vào ảnh hồ sơ
+    $("#imgprofile").on("click", function () {
+      $("#fileInput").click();
+
+      // Sự kiện khi người dùng chọn tệp mới
+      $("#fileInput").on("change", function (event) {
+        var file = event.target.files[0];
+        if (file) {
+          file.src = URL.createObjectURL(file);
+          $("#imgprofile").attr("src", file.src);
+        }
+      });
+    });
+
+    // event when user save profile
+    $(".profile-button").on("click", function () {
+      var newUserProfile = {
+        address: $("#address").val(),
+        avatar: $("#imgprofile").attr("src"),
+        email: $("#email").val(),
+        fullname: $("#fullname").val(),
+        gender: $("#gender").val(),
+        id: item.id,
+        national: $("#national").val(),
+        password: item.password,
+        phone: $("#phone").val(),
+        role: "USER",
+        username: item.username,
+      };
+      console.log(newUserProfile.email);
+      localStorage.setItem("user", JSON.stringify(newUserProfile));
+      window.location.href = "userProfile.html";
     });
   });
 })(jQuery);

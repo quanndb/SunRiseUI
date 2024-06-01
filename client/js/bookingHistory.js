@@ -1,6 +1,6 @@
-import BOOKINGS from "../../mock/bookings.js";
-
 (function ($) {
+  var bookings = JSON.parse(localStorage.getItem("bookings"));
+
   var bookingStatus = {
     Canceled: "danger",
     Using: "info",
@@ -17,6 +17,7 @@ import BOOKINGS from "../../mock/bookings.js";
         item.accountID === userID &&
         (filter === "All" || item.status === filter)
       ) {
+        console.log(item.message);
         $(".bookingData").append(`
                     <tr>
                         <td>
@@ -33,6 +34,7 @@ import BOOKINGS from "../../mock/bookings.js";
                         <td><span class="text-primary">${
                           item.total
                         } Tr</span></td>
+                        <td>${item.message}</td>
                         <td><span class="bg-${
                           bookingStatus[item.status]
                         } m-0 p-1 text-white rounded-2 text-center">${
@@ -74,6 +76,7 @@ import BOOKINGS from "../../mock/bookings.js";
                     <th>Branch</th>
                     <th>Room</th>
                     <th>Total</th>
+                    <th>Message</th>
                     <th>Status</th>
                     <th>Note</th>
                   </tr>
@@ -84,11 +87,11 @@ import BOOKINGS from "../../mock/bookings.js";
           `
     );
 
-    renderBookings(BOOKINGS, "All");
+    renderBookings(bookings, "All");
 
     $("#order-sort").on("change", function () {
       var filter = $(this).val();
-      renderBookings(BOOKINGS, filter);
+      renderBookings(bookings, filter);
     });
   });
 })(jQuery);

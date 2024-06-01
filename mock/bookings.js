@@ -11,7 +11,8 @@ const bookings = [
     roomId: 0,
     room: "luxury",
     total: 5.03,
-    note:"Đã hết phòng",
+    message: "Phòng trang bị sẵn nước lạnh",
+    note: "Đã hết phòng",
     status: "Canceled",
   },
   {
@@ -26,7 +27,8 @@ const bookings = [
     roomId: 1,
     room: "standard",
     total: 3.13,
-    note:"",
+    message: "",
+    note: "",
     status: "Using",
   },
   {
@@ -41,7 +43,8 @@ const bookings = [
     roomId: 2,
     room: "suite",
     total: 5.13,
-    note:"",
+    message: "",
+    note: "",
     status: "Waiting",
   },
   {
@@ -56,10 +59,10 @@ const bookings = [
     roomId: 3,
     room: "single",
     total: 2.15,
-    note:"",
+    message: "",
+    note: "",
     status: "Delivered",
   },
-
 
   {
     id: 4,
@@ -73,7 +76,8 @@ const bookings = [
     roomId: 4,
     room: "luxury",
     total: 5.03,
-    note:"",
+    message: "ok",
+    note: "",
     status: "Using",
   },
   {
@@ -88,7 +92,8 @@ const bookings = [
     roomId: 5,
     room: "standard",
     total: 3.13,
-    note:"Đã hết phòng",
+    message: "ok",
+    note: "Đã hết phòng",
     status: "Canceled",
   },
   {
@@ -103,7 +108,8 @@ const bookings = [
     roomId: 6,
     room: "suite",
     total: 5.13,
-    note:"",
+    message: "aa",
+    note: "",
     status: "Delivered",
   },
   {
@@ -118,10 +124,13 @@ const bookings = [
     roomId: 7,
     room: "single",
     total: 2.15,
-    note:"",
+    message: "aa",
+    note: "",
     status: "Waiting",
   },
-
 ];
 
-export default bookings;
+//set localstorage when first time start website
+if (localStorage.getItem("bookings") == null) {
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+}

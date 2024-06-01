@@ -1,5 +1,5 @@
 import rooms from "./rooms.js";
-import bookings from "./bookings.js"
+import bookings from "./bookings.js";
 
 (function ($) {
   $(document).ready(function () {
@@ -51,18 +51,6 @@ import bookings from "./bookings.js"
       `;
 
       container.append(roomItem);
-    });
-
-    $(document).on("click", "#bookNowBtn", function (e) {
-      e.preventDefault();
-      const roomId = $(this).data("room-id");
-      const room = rooms.find((r) => r.id == roomId);
-      localStorage.setItem("selectedRoom", JSON.stringify(room));
-
-     
-      const bookId = bookings.find((r) => r.id == bookId);
-      localStorage.setItem("bookingInfo", JSON.stringify(bookingInfo));
-      window.location.href = "booking.html";
     });
   });
 })(jQuery);

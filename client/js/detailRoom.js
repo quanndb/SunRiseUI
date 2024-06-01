@@ -50,16 +50,21 @@ import ROOMS from "../../mock/rooms.js";
               <div class="mb-2">
                 ${Array.from(
                   { length: room.rate },
-                  (_, index) => `<small class="fa fa-star text-primary"></small>`
+                  (_, index) =>
+                    `<small class="fa fa-star text-primary"></small>`
                 ).join("")}
               </div>
               <div class="d-flex mb-3">
-                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Giường ${room.bedType}</small>
+                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Giường ${
+                  room.bedType
+                }</small>
                 <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i></small>
                 <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
               </div>
               <p class="text-body mb-3">${room.description}</p>
-              <small class="translate-middle-y bg-primary text-white rounded py-1 px-3">${room.price} Triệu vnđ/Đêm</small>
+              <small class="translate-middle-y bg-primary text-white rounded py-1 px-3">${
+                room.price
+              } Triệu vnđ/Đêm</small>
               <div class="row ms-1 mt-3">
                 <div class="row"><span class="fw-bold">AMENITIES</span>
                   <p>Area: 32 m2</p>
@@ -94,7 +99,11 @@ import ROOMS from "../../mock/rooms.js";
                         ${room.price} <sup>đ</sup> / day
                     </span>
                 </div>
-                <a class="btn btn-sm btn-dark rounded py-2 px-4 ${room.isActive ? "" : "disabled"}" href="booking.html" id="bookNowBtn" data-room-id="${room.id}">Đặt ngay</a>
+                <a class="btn btn-sm btn-dark rounded py-2 px-4 ${
+                  room.isActive ? "" : "disabled"
+                }" href="booking.html" id="bookNowBtn" data-room-id="${
+          room.id
+        }">Đặt ngay</a>
               </div>
             </div>
           </div>`;
@@ -109,14 +118,6 @@ import ROOMS from "../../mock/rooms.js";
     });
     $(".img-content").mouseleave(function () {
       $(this).css("border", "none");
-    });
-
-    $(document).on("click", "#bookNowBtn", function (e) {
-      e.preventDefault();
-      const roomId = $(this).data("room-id");
-      const room = ROOMS.find((r) => r.id == roomId);
-      localStorage.setItem("selectedRoom", JSON.stringify(room));
-      window.location.href = "booking.html";
     });
   });
 })(jQuery);

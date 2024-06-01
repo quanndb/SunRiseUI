@@ -1,11 +1,12 @@
-
 import rooms from "../../mock/rooms.js";
-import bookings from "../../mock/bookings.js"
 
 (function ($) {
   $(document).ready(function () {
     var container = $(".rooms");
     rooms.forEach(function (room) {
+      $("#room").append(`
+      <option value="${room.roomName}">${room.roomName}</option>
+      `);
       var roomItem = `
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="room-item shadow rounded overflow-hidden">
@@ -52,21 +53,6 @@ import bookings from "../../mock/bookings.js"
       `;
 
       container.append(roomItem);
-    });
-
-    $(document).on("click", "#bookNowBtn", function (e) {
-      e.preventDefault();
-      const roomId = $(this).data("room-id");
-      const room = rooms.find((r) => r.id == roomId);
-      localStorage.setItem("selectedRoom", JSON.stringify(room));
-
-      const bookingInfo = {
-        description: room.description,
-        bedType: room.bedType,
-        roomName: room.roomName,
-      };
-      localStorage.setItem("bookingInfo", JSON.stringify(bookingInfo));
-      window.location.href = "booking.html";
     });
   });
 })(jQuery);

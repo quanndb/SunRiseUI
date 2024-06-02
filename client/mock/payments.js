@@ -9,6 +9,9 @@ const payments = [
     mealPrice: 0.8,
     servicePrice: 1.1,
     incurredPrice: 0.0,
+    isComment: false,
+    rate: 0,
+    comment: "",
   },
   {
     id: 1,
@@ -20,6 +23,9 @@ const payments = [
     mealPrice: 0.8,
     servicePrice: 1.2,
     incurredPrice: 0.1,
+    isComment: false,
+    rate: 0,
+    comment: "",
   },
   {
     id: 2,
@@ -31,6 +37,9 @@ const payments = [
     mealPrice: 0.8,
     servicePrice: 1.1,
     incurredPrice: 0.0,
+    isComment: false,
+    rate: 0,
+    comment: "",
   },
   {
     id: 3,
@@ -42,11 +51,12 @@ const payments = [
     mealPrice: 0.8,
     servicePrice: 1.2,
     incurredPrice: 0.1,
+    isComment: false,
+    rate: 0,
+    comment: "",
   },
 ];
 //set localstorage when first time start website
 if (localStorage.getItem("payments") == null) {
   localStorage.setItem("payments", JSON.stringify(payments));
 }
-
-export default payments;

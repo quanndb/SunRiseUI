@@ -1,12 +1,3 @@
-const JOBS = [
-  "Teacher",
-  "Student",
-  "Software Engineer",
-  "Doctor",
-  "Saler",
-  "Worker",
-];
-
 const reviews = [
   {
     id: 1,
@@ -101,4 +92,7 @@ const reviews = [
     ],
   },
 ];
-export default reviews;
+//set localstorage when first time start website
+if (localStorage.getItem("reviews") == null) {
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+}

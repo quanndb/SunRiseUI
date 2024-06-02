@@ -1,8 +1,7 @@
-import reviews from "../mock/reviews.js";
-
 (function ($) {
   $(document).ready(function () {
     var user = JSON.parse(localStorage.getItem("user"));
+    var reviews = JSON.parse(localStorage.getItem("reviews"));
     if (user) {
       $(".post-comment").append(`<div class="avatar px-0 col-1 me-2">
       <img
@@ -129,6 +128,7 @@ import reviews from "../mock/reviews.js";
     });
 
     function render() {
+      localStorage.setItem("reviews", JSON.stringify(reviews));
       $(".comment-section").html("");
       reviews.forEach((item, index) => {
         $(".comment-section").append(

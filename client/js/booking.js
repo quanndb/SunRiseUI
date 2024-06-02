@@ -1,4 +1,4 @@
-import rooms from "../../mock/rooms.js";
+import rooms from "../mock/rooms.js";
 
 (function ($) {
   const bookings = JSON.parse(localStorage.getItem("bookings"));

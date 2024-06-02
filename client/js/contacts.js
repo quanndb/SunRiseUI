@@ -2,10 +2,7 @@
 (function ($) {
   $(document).ready(function () {
     const contactsData = JSON.parse(localStorage.getItem("contacts"));
-
-    var user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      $(".contact-form").append(`<form>
+    $(".contact-form").append(`<form>
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="form-floating">
@@ -60,15 +57,6 @@
               </div>
             </div>
           </form>`);
-    } else {
-      $(".contact-form")
-        .append(`<div class="col d-flex align-items-center justify-content-center">
-        <div class="btn btn-primary me-2 login-btn">Login</div>
-        <div class="text-white">to share your thoughts</div>
-      </div>`);
-    }
-
-    var userID = JSON.parse(localStorage.getItem("user")).id || "";
     $("#sendContact").on("click", function (event) {
       console.log(contactsData);
 
@@ -80,11 +68,10 @@
       var message = $("#message").val();
       if (name == "" || email == "" || subject == "" || message == "") {
         $("#contact-message").text("Please fill in all fields");
-    } else {
+      } else {
         $("#contact-message").text("Please fill in all fields");
         var newContact = {
           id: contactsData.length + 1,
-          accountID: userID,
           name: name,
           email: email,
           subject: subject,

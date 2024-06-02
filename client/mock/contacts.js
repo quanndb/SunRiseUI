@@ -1,7 +1,6 @@
 const contacts = [
   {
     id: 0,
-    accountID: 0,
     name: "Quân Vũ",
     email: "quanna@gmail.com",
     subject: "Vấn đề gặp khi đặt phòng",
@@ -13,7 +12,6 @@ const contacts = [
 
   {
     id: 1,
-    accountID: 0,
     name: "Quân Nguyễn",
     email: "quanna@gmail.com",
     subject: "Vấn đề gặp khi đặt phòng",
@@ -24,7 +22,6 @@ const contacts = [
     },
   {
     id: 2,
-    accountID: 1,
     name: "Kiệt ",
     email: "quanna@gmail.com",
     subject: "Vấn đề gặp khi đặt phòng",
@@ -35,7 +32,6 @@ const contacts = [
     },
   {
     id: 4,
-    accountID: 1,
     name: "Khôi",
     email: "quanna@gmail.com",
     subject: "Vấn đề gặp khi đặt phòng",

@@ -51,6 +51,9 @@ import rooms from "../mock/rooms.js";
           message: message,
           note: "",
           status: "Waiting",
+          name: name,
+          email :email,
+          phone: phone
         };
         console.log(bookings);
         bookings.push(newBooking);

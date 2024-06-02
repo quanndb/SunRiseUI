@@ -1,5 +1,4 @@
 import rooms from "./rooms.js";
-import bookings from "./bookings.js";
 
 (function ($) {
   $(document).ready(function () {

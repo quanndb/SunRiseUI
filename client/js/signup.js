@@ -1,4 +1,4 @@
-import ACCOUNTS from "../../mock/accounts.js";
+import ACCOUNTS from "../mock/accounts.js";
 
 (function ($) {
   $(document).on("click", "#signup-btn", function () {

@@ -1,13 +1,49 @@
-import reviews from "../../mock/reviews.js";
+import reviews from "../mock/reviews.js";
 
 (function ($) {
   $(document).ready(function () {
+    var user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      $(".post-comment").append(`<div class="avatar px-0 col-1 me-2">
+      <img
+        src="${user.avatar ? user.avatar : "img/initimageprofile.jpg"}"
+        class="rounded-circle bg-white"
+        alt=""
+      />
+    </div>
+    <div class="new-comment shadow-sm col-6 px-0 me-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control1"
+          id="comment"
+          placeholder="Comment here"
+        />
+        <label for="comment" class="d-flex align-items-center">
+          <span class="ms-1" id="comment-label"> Comment </span></label
+        >
+      </div>
+    </div>
+    <button class="btn btn-primary col-2" id="send-comment">
+      SEND <i class="fa-regular fa-paper-plane"></i>
+    </button>`);
+    } else {
+      $(".post-comment")
+        .append(`<div class="col d-flex align-items-center justify-content-center">
+      <div class="btn btn-primary me-2 login-btn">Login</div>
+      <div class="text-white">to share your thoughts</div>
+    </div>`);
+    }
     var idx;
 
     var liked = false;
     var disliked = false;
 
     render();
+    $(document).on("click", ".login-btn", function () {
+      window.location.href = "login.html";
+    });
+
     $(document).on("click", "#btnSubmit", function () {
       idx = $(this).attr("idx");
 
@@ -43,22 +79,19 @@ import reviews from "../../mock/reviews.js";
       idx = $(this).attr("idx");
       liked = reviews[idx - 1].isLike;
       disliked = reviews[idx - 1].isDislike;
-      
+
       if (!disliked) {
         if (liked) {
           reviews[idx - 1].like--;
           reviews[idx - 1].isLike = false;
           reviews[idx - 1].isDislike = true;
           reviews[idx - 1].disLike++;
-        } 
-        else {
+        } else {
           reviews[idx - 1].disLike++;
           reviews[idx - 1].isDislike = true;
           reviews[idx - 1].isLike = false;
         }
-
-      } 
-      else {
+      } else {
         reviews[idx - 1].disLike--;
         reviews[idx - 1].isDislike = false;
         reviews[idx - 1].isLike = false;
@@ -83,8 +116,8 @@ import reviews from "../../mock/reviews.js";
 
       let newReply = {
         id: reviews[idx - 1].reply.length + 1,
-        username: "sunrise",
-        img: "../client/img/logo.jpg",
+        username: user.username,
+        img: user.avatar ? user.avatar : "img/initimageprofile.jpg",
         date: date,
         comment: rep,
       };

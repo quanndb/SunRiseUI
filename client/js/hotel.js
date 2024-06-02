@@ -1,4 +1,4 @@
-import hotels from "../../mock/hotels.js";
+import hotels from "../mock/hotels.js";
 
 (function ($) {
   $(document).ready(function () {

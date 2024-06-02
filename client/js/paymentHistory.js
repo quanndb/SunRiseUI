@@ -1,14 +1,14 @@
-import paymentsData from "../../mock/payments.js";
+import paymentsData from "../mock/payments.js";
 
 (function ($) {
   var user = JSON.parse(localStorage.getItem("user")) || {};
   var users = Array.isArray(user) ? user : [user]; // Ensure users is an array
   var userID = user.id;
   $(".paymentData").empty();
-  console.log(userID);
 
   // Ensure localStorage data is initialized
   var storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  console.log(storedBookings);
   $(document).ready(function () {
     $(".paymentsHistory").append(`
       <div class="table-responsive">
@@ -34,7 +34,7 @@ import paymentsData from "../../mock/payments.js";
     `);
 
     paymentsData.forEach((item) => {
-      if (item.accountID === userID ) {
+      if (item.accountID === userID) {
         $(".paymentData").append(`
           <tr>
             <td>

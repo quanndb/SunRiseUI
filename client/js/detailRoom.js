@@ -1,4 +1,4 @@
-import ROOMS from "../../mock/rooms.js";
+import ROOMS from "../mock/rooms.js";
 (function ($) {
   $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);

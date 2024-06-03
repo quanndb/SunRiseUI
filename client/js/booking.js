@@ -1,7 +1,8 @@
-import rooms from "../mock/rooms.js";
+// import rooms from "../mock/rooms.js";
 
 (function ($) {
   const bookings = JSON.parse(localStorage.getItem("bookings"));
+  const rooms = JSON.parse(localStorage.getItem("rooms"));
   var userID = JSON.parse(localStorage.getItem("user")).id;
   $(document).ready(function () {
     $("#submit-booking").on("click", function (event) {

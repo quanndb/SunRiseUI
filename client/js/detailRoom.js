@@ -1,11 +1,11 @@
-import ROOMS from "../mock/rooms.js";
+// import ROOMS from "../mock/rooms.js";
 (function ($) {
   $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const roomId = urlParams.get("id");
     var container = $("#roomDetailContainer");
     container.addClass("justify-content-center");
-
+    const ROOMS = JSON.parse(localStorage.getItem("rooms"));
     console.log(roomId);
     ROOMS.forEach(function (room) {
       if (room.id == roomId) {

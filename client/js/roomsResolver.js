@@ -12,7 +12,7 @@
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="room-item shadow rounded overflow-hidden">
             <div class="position-relative">
-              <img class="img-fluid" src="img/room-${room.id}.jpg" alt="${
+              <img class="img-fluid" src="${room.images[0].img}" alt="${
         room.roomName
       }">
               <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${

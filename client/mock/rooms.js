@@ -12,11 +12,15 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "../img/carousel-1.jpg",
+        img: "/client/img/room-0.jpg",
       },
       {
         id: "1",
-        img: "../img/carousel-1.jpg",
+        img: "/client/img/room-1.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-2.jpg",
       },
     ],
     price: "1.00",
@@ -31,8 +35,20 @@ const ROOMS = [
     isActive: false,
     price: 5,
     rate: 3,
-    images: [{}],
-    price: "1.50",
+    images: [
+      {
+        id: "0",
+        img: "/client/img/room-1.jpg",
+      },
+      {
+        id: "1",
+        img: "/client/img/room-2.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-3.jpg",
+      },
+    ],    price: "1.50",
   },
   {
     id: "2",
@@ -44,8 +60,20 @@ const ROOMS = [
     isActive: true,
     price: 3,
     rate: 4,
-    images: [{}],
-    price: "2.00",
+    images: [
+      {
+        id: "0",
+        img: "/client/img/room-2.jpg",
+      },
+      {
+        id: "1",
+        img: "/client/img/room-3.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-4.jpg",
+      },
+    ],    price: "2.00",
   },
   {
     id: "3",
@@ -57,8 +85,20 @@ const ROOMS = [
     isActive: false,
     price: 5,
     rate: 4,
-    images: [{}],
-    price: "2.50",
+    images: [
+      {
+        id: "0",
+        img: "/client/img/room-3.jpg",
+      },
+      {
+        id: "1",
+        img: "/client/img/room-4.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-5.jpg",
+      },
+    ],    price: "2.50",
   },
   {
     id: "4",
@@ -70,8 +110,20 @@ const ROOMS = [
     isActive: true,
     price: 3,
     rate: 5,
-    images: [{}],
-    price: "3.00",
+    images: [
+      {
+        id: "0",
+        img: "/client/img/room-4.jpg",
+      },
+      {
+        id: "1",
+        img: "/client/img/room-5.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-6.jpg",
+      },
+    ],    price: "3.00",
   },
   {
     id: "5",
@@ -83,8 +135,20 @@ const ROOMS = [
     isActive: true,
     price: 12,
     rate: 5,
-    images: [{}],
-    price: "3.50",
+    images: [
+      {
+        id: "0",
+        img: "/client/img/room-5.jpg",
+      },
+      {
+        id: "1",
+        img: "/client/img/room-6.jpg",
+      },
+      {
+        id: "2",
+        img: "/client/img/room-7.jpg",
+      },
+    ],    price: "3.50",
   },
 ];
 if (localStorage.getItem("rooms") == null) {

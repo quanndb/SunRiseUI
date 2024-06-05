@@ -9,35 +9,30 @@
     console.log(roomId);
     ROOMS.forEach(function (room) {
       if (room.id == roomId) {
+        console.log(room);
         const roomDetail = `
           <div class="col-lg-4 col-md-6 wow fadeInUp d-flex flex-md-column flex-lg-row" data-wow-delay="0.1s">
               <div class="position-relative">
                 <img
                   class="img-fluid mb-2 img-show-room"
                   style="height: 400px;"
-                  src="img/room-${room.id}.jpg"
+                  src="${room.images[0].img}"  alt="${room.roomName}"
                   alt="${room.roomName}"
                 />
                 <div class="swiper-img">
                     <div class="d-flex">
-                        <img
-                      class="img-fluid img-content me-2"
-                      style="height: 100px; width: 100px;"
-                      src="img/room-1.jpg"
-                      alt="${room.roomName}"
-                    />
-                    <img
-                        class="img-fluid img-content me-2"
-                        style="height: 100px; width: 100px;"
-                        src="img/room-2.jpg"
-                        alt="${room.roomName}"
-                      />
-                    <img
-                        class="img-fluid img-content"
-                        style="height: 100px; width: 100px;"
-                        src="img/room-3.jpg"
-                        alt="${room.roomName}"
-                      />
+                    ${room.images
+                      .map(
+                        (image) => `
+                          <img
+                            class="img-fluid img-content me-2"
+                            style="height: 100px; width: 100px;"
+                            src="${image.img}"
+                            alt="${room.roomName}"
+                          />
+                        `
+                      )
+                      .join("")}
                   </div>
                 </div>
               </div>

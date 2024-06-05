@@ -56,8 +56,8 @@
                           <input
                             type="text"
                             name="username"
+                            id="username"
                             class="form-control"
-                            id="yourUsername"
                             required
                           />
                           <div class="invalid-feedback">
@@ -74,7 +74,7 @@
                           type="password"
                           name="password"
                           class="form-control"
-                          id="yourPassword"
+                          id="password"
                           required
                         />
                         <div class="invalid-feedback">
@@ -96,15 +96,23 @@
                           >
                         </div>
                       </div>
+                      <div
+                        id="error-message"
+                        class="text-danger col-10 d-flex"
+                      ></div>
                       <div class="col-12">
-                        <button class="btn btn-primary w-100" type="submit">
+                        <button
+                          class="btn btn-primary w-100"
+                          type="button"
+                          id="login-btn"
+                        >
                           Login
                         </button>
                       </div>
                       <div class="col-12">
                         <p class="small mb-0">
                           Don't have account?
-                          <a href="pages-register.html">Create an account</a>
+                          <a href="#">Create an account</a>
                         </p>
                       </div>
                     </form>
@@ -122,5 +130,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/loginAdmin.js"></script>
+    <script src="./mock/admins.js"></script>
   </body>
 </html>

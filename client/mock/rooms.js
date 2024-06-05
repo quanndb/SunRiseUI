@@ -87,4 +87,6 @@ const ROOMS = [
     price: "3.50",
   },
 ];
-export default ROOMS;
+if (localStorage.getItem("rooms") == null) {
+  localStorage.setItem("rooms", JSON.stringify(ROOMS));
+}

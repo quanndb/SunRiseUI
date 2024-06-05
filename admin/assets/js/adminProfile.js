@@ -1,184 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+import ADMINS from "../../mock/admins.js";
 
-    <title>SunRise || Admin</title>
+(function ($) {
+  $(document).ready(function () {
+    var item = JSON.parse(localStorage.getItem("admins"));
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-  </head>
-
-  <body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-      <div class="d-flex">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <span class="d-block">SunRise</span>
-        </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-      </div>
-      <!-- End Logo -->
-
-      <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
-          <li class="nav-item dropdown">
-            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-bell"></i>
-              <span class="badge bg-primary badge-number">4</span> </a
-            ><!-- End Notification Icon -->
-
-            <ul
-              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications"
-            >
-              <li class="dropdown-header">
-                You have 4 new notifications
-                <a href="#"
-                  ><span class="badge rounded-pill bg-primary p-2 ms-2"
-                    >View all</span
-                  ></a
-                >
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li class="notification-item">
-                <i class="bi bi-exclamation-circle text-warning"></i>
-                <div>
-                  <h4>Lorem Ipsum</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>30 min. ago</p>
-                </div>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li class="notification-item">
-                <i class="bi bi-x-circle text-danger"></i>
-                <div>
-                  <h4>Atque rerum nesciunt</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>1 hr. ago</p>
-                </div>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li class="notification-item">
-                <i class="bi bi-check-circle text-success"></i>
-                <div>
-                  <h4>Sit rerum fuga</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>2 hrs. ago</p>
-                </div>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li class="notification-item">
-                <i class="bi bi-info-circle text-primary"></i>
-                <div>
-                  <h4>Dicta reprehenderit</h4>
-                  <p>Quae dolorem earum veritatis oditseno</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li class="dropdown-footer">
-                <a href="#">Show all notifications</a>
-              </li>
-            </ul>
-            <!-- End Notification Dropdown Items -->
-          </li>
-          <!-- End Notification Nav -->
-
-          <li class="nav-item dropdown">
-            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-chat-left-text"></i>
-              <span class="badge bg-success badge-number num-message"
-                >3</span
-              > </a
-            ><!-- End Messages Icon -->
-
-            <ul
-              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages"
-            >
-              <li class="dropdown-header">
-                You have <span class="num-message text-primary">3</span> new
-                messages
-                <a href="#"></a>
-              </li>
-              <hr />
-              <!-- message start -->
-              <div class="message-container"></div>
-              <!-- message end -->
-              <li class="text-center">
-                <a href="contact.html" class="text-decoration-underline"
-                  >View All</a
-                >
-              </li>
-            </ul>
-            <!-- End Messages Dropdown Items -->
-          </li>
-          <!-- End Messages Nav -->
-
-          <li class="nav-item dropdown pe-3 profilee">
-            <!-- End Profile Dropdown Items -->
-          </li>
-          <!-- End Profile Nav -->
-        </ul>
-      </nav>
-      <!-- End Icons Navigation -->
-    </header>
-    <!-- End Header -->
-
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-      <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="bi bi-grid"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <!-- End Dashboard Nav -->
-
-        <li class="nav-item">
-          <a class="nav-link" href="users-profile.html">
-            <i class="bi bi-person"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-        <!-- End Profile Page Nav -->
-      </ul>
-    </aside>
-    <!-- End Sidebar-->
-
-    <main id="main" class="main">
-      <div class="pagetitle">
+    $(".adminProfile").append(`
+    <div class="pagetitle">
         <h1>Profile</h1>
         <nav>
           <ol class="breadcrumb">
@@ -190,7 +17,7 @@
       </div>
       <!-- End Page Title -->
 
-      <section class="section profile">
+      <section class="section profile ">
         <div class="row">
           <div class="col-xl-4">
             <div class="card">
@@ -198,12 +25,12 @@
                 class="card-body profile-card pt-4 d-flex flex-column align-items-center"
               >
                 <img
-                  src="assets/img/profile-img.jpg"
+                  src="${item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"}"
                   alt="Profile"
                   class="rounded-circle"
                 />
-                <h2>Kevin Anderson</h2>
-                <h3>Web Designer</h3>
+                <h2>${item.fullName}</h2>
+                <h3>${item.job}</h3>
                 <div class="social-links mt-2">
                   <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                   <a href="#" class="facebook"
@@ -219,13 +46,14 @@
               </div>
             </div>
           </div>
-
+        
           <div class="col-xl-8">
             <div class="card">
               <div class="card-body pt-3">
                 <!-- Bordered Tabs -->
                 <ul class="nav nav-tabs nav-tabs-bordered">
-                  <li class="nav-item">
+                  
+                  <li class="nav-item ">
                     <button
                       class="nav-link active"
                       data-bs-toggle="tab"
@@ -234,7 +62,9 @@
                       Edit Profile
                     </button>
                   </li>
-
+        
+              
+        
                   <li class="nav-item">
                     <button
                       class="nav-link"
@@ -246,6 +76,7 @@
                   </li>
                 </ul>
                 <div class="tab-content pt-2">
+        
                   <div
                     class="tab-pane fade profile-edit show active pt-3"
                     id="profile-edit"
@@ -259,11 +90,14 @@
                           >Profile Image</label
                         >
                         <div class="col-md-8 col-lg-9">
-                          <img src="assets/img/profile-img.jpg" alt="Profile" />
+                          <img class="imageProfile" src="
+                          ${item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"}
+                          " alt="Profile" />
                           <div class="pt-2">
+                          <input type="file" id="fileInput" style="display: none;" />
+
                             <a
-                              href="#"
-                              class="btn btn-primary btn-sm"
+                              class="btn btn-primary btn-sm changeImage"
                               title="Upload new profile image"
                               ><i class="bi bi-upload"></i
                             ></a>
@@ -276,7 +110,7 @@
                           </div>
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="fullName"
@@ -289,11 +123,11 @@
                             type="text"
                             class="form-control"
                             id="fullName"
-                            value="Kevin Anderson"
+                            value="${item.fullName}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="about"
@@ -307,11 +141,11 @@
                             id="about"
                             style="height: 100px"
                           >
-Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea
+        ${item.about}</textarea
                           >
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="company"
@@ -324,11 +158,11 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="text"
                             class="form-control"
                             id="company"
-                            value="Lueilwitz, Wisoky and Leuschke"
+                            value="${item.company}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="Job"
@@ -341,11 +175,11 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="text"
                             class="form-control"
                             id="Job"
-                            value="Web Designer"
+                            value="${item.job}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="Country"
@@ -358,11 +192,11 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="text"
                             class="form-control"
                             id="Country"
-                            value="USA"
+                            value="${item.country}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="Address"
@@ -375,11 +209,11 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="text"
                             class="form-control"
                             id="Address"
-                            value="A108 Adam Street, New York, NY 535022"
+                            value="${item.address}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="Phone"
@@ -392,11 +226,11 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="text"
                             class="form-control"
                             id="Phone"
-                            value="(436) 486-3538 x29071"
+                            value="${item.phone}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="row mb-3">
                         <label
                           for="Email"
@@ -409,13 +243,13 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                             type="email"
                             class="form-control"
                             id="Email"
-                            value="k.anderson@example.com"
+                            value="${item.email}"
                           />
                         </div>
                       </div>
-
+        
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary saveChangeBtn">
                           Save Changes
                         </button>
                       </div>
@@ -426,57 +260,25 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
                     <!-- Change Password Form -->
                     <form>
                       <div class="row mb-3">
-                        <label
-                          for="currentPassword"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >Current Password</label
-                        >
+                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input
-                            name="password"
-                            type="password"
-                            class="form-control"
-                            id="currentPassword"
-                          />
+                          <input name="password" type="password" class="form-control" id="currentPassword" />
                         </div>
                       </div>
-
                       <div class="row mb-3">
-                        <label
-                          for="newPassword"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >New Password</label
-                        >
+                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input
-                            name="newpassword"
-                            type="password"
-                            class="form-control"
-                            id="newPassword"
-                          />
+                          <input name="newpassword" type="password" class="form-control" id="newPassword" />
                         </div>
                       </div>
-
                       <div class="row mb-3">
-                        <label
-                          for="renewPassword"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >Re-enter New Password</label
-                        >
+                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input
-                            name="renewpassword"
-                            type="password"
-                            class="form-control"
-                            id="renewPassword"
-                          />
+                          <input name="renewpassword" type="password" class="form-control" id="renewPassword" />
                         </div>
                       </div>
-
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary">
-                          Change Password
-                        </button>
+                        <button type="button" class="btn btn-primary changePasswordBtn">Change Password</button>
                       </div>
                     </form>
                     <!-- End Change Password Form -->
@@ -488,19 +290,74 @@ Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Temp
           </div>
         </div>
       </section>
-    </main>
+        `);
 
-    <main id="main" class="main adminProfile"></main>
+    // Sự kiện khi nhấp vào
+    $(".changeImage").on("click", function () {
+      $("#fileInput").click();
+    });
 
-    <!-- End #main -->
+    // Event when the user selects a new file
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    $("#fileInput").on("change", function (event) {
+      var file = event.target.files[0];
+      if (file) {
+        file.src = URL.createObjectURL(file);
+        $(".imageProfile").attr("src", file.src);
+      }
+    });
 
-    <script src="assets/js/contact.js"></script>
+    // event when user save profile
+    $(".saveChangeBtn").on("click", function () {
+      var newAdminProfile = {
+        id: item.id,
+        username: item.username,
+        password: item.password,
 
-    <script type="module" src="assets/js/adminProfile.js"></script>
-  </body>
-</html>
+        fullName: $("#fullName").val(),
+        about: $("#about").val(),
+        company: $("#company").val(),
+        job: $("#Job").val(),
+        country: $("#Country").val(),
+        address: $("#Address").val(),
+
+        phone: $("#Phone").val(),
+        email: $("#Email").val(),
+
+        avatar: $(".imageProfile").attr("src"),
+      };
+
+      // Update the image on the page
+      // $(".imageProfile").attr("src", newAdminProfile.avatar);
+      localStorage.setItem("admins", JSON.stringify(newAdminProfile));
+      window.location.href = "/admin/users-profile.html";
+
+    });
+
+    //changePass
+    $(".changePasswordBtn").on("click", function () {
+      var currentPassword = $("#currentPassword").val();
+      var newPassword = $("#newPassword").val();
+      var renewPassword = $("#renewPassword").val();
+
+      if (currentPassword !== item.password) {
+        alert("Current password is incorrect.");
+        return;
+      }
+
+      if (newPassword !== renewPassword) {
+        alert("New passwords do not match.");
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        alert("New password must be at least 6 characters long.");
+        return;
+      }
+
+      item.password = newPassword;
+      localStorage.setItem("admins", JSON.stringify(item));
+      alert("Password changed successfully.");
+    });
+  });
+})(jQuery);

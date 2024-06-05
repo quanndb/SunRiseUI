@@ -1,7 +1,8 @@
-import rooms from "../mock/rooms.js";
+// import rooms from "../mock/rooms.js";
 
 (function ($) {
   $(document).ready(function () {
+    var rooms = JSON.parse(localStorage.getItem("rooms"));
     var container = $(".rooms");
     rooms.forEach(function (room) {
       $("#room").append(`

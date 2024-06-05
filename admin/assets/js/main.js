@@ -1,27 +1,18 @@
-// (function ($) {
-//   "use strict";
-//   $(document).ready(function () {
-//     $(".toggle-sidebar-btn").click(function () {
-//       $("#main").toggleClass("mleft");
-//       $("#sidebar").toggleClass("hideSB");
-//     });
-//   });
-// })(jQuery);
-
-// import ADMINS from "../../mock/admins.js";
-
 (function ($) {
   $(document).ready(function () {
-    var item = JSON.parse(localStorage.getItem("admins"));
+    if (localStorage.getItem("admins")) {
+      var item = JSON.parse(localStorage.getItem("admins"));
 
-    $(".profilee").append(`
+      $(".profilee").append(`
     <a
               class="nav-link nav-profile d-flex align-items-center pe-0"
               href="#"
               data-bs-toggle="dropdown"
             >
               <img
-                src="${item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"}"
+                src="${
+                  item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"
+                }"
                 alt="Profile"
                 class="rounded-circle"
               />
@@ -64,14 +55,12 @@
             </ul>
     `);
 
-
-    $(".signOut").click(function () {
-      localStorage.removeItem("admins");
+      $(".signOut").click(function () {
+        localStorage.removeItem("admins");
+        window.location.href = "/admin/pages-login.html";
+      });
+    } else {
       window.location.href = "/admin/pages-login.html";
-    })
-
+    }
   });
 })(jQuery);
-
-
-

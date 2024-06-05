@@ -75,7 +75,8 @@
           name: name,
           email: email,
           subject: subject,
-          message: message,
+          body: message,
+          isReaded: false,
         };
 
         console.log(newContact);

@@ -3,6 +3,12 @@
     function renderRooms() {
       var items = JSON.parse(localStorage.getItem("rooms"));
 
+      items.forEach((item) => {
+        $("#room").append(
+          `<option value="${item.roomName}">${item.roomName}</option>`
+        );
+      });
+
       var rows = items
         .map(function (item) {
           return `
@@ -60,40 +66,46 @@
                   data=4
                   data-item=${item.id}
                   id="imageContainer4">
-                    <img id="imagePreview4${item.id}" src="${
-                      item.images ? item.images[0]?.img : ""
-                    }" />
+                    <img id="imagePreview4${
+                      item.id
+                    }" src="${item.images ? item.images[0]?.img : ""}" />
                   </div>
-                  <input type="file" class="files fileIP4${item.id}" data=4 dataIP=${item.id} id="fileInput4" style="display: none;" />
+                  <input type="file" class="files fileIP4${
+                    item.id
+                  }" data=4 dataIP=${item.id} id="fileInput4" style="display: none;" />
                 </div>
                 <div class="col-md-2 mb-3 mt-3">
                   <div class="image-container"
                   data=5
                   data-item=${item.id}
                   id="imageContainer5">
-                    <img id="imagePreview5${item.id}" src="${
-                      item.images ? item.images[1]?.img : ""
-                    }" />
+                    <img id="imagePreview5${
+                      item.id
+                    }" src="${item.images ? item.images[1]?.img : ""}" />
                   </div>
-                  <input type="file" class="files fileIP5${item.id}" data=5 dataIP=${item.id} id="fileInput5" style="display: none;" />
+                  <input type="file" class="files fileIP5${
+                    item.id
+                  }" data=5 dataIP=${item.id} id="fileInput5" style="display: none;" />
                 </div>
                 <div class="col-md-2 mb-3 mt-3">
                   <div class="image-container" 
                   data=6
                   data-item=${item.id}
                   id="imageContainer6">
-                    <img id="imagePreview6${item.id}" src="${
-                      item.images ? item.images[2]?.img : ""
-                    }" />
+                    <img id="imagePreview6${
+                      item.id
+                    }" src="${item.images ? item.images[2]?.img : ""}" />
                   </div>
-                  <input type="file" class="files fileIP6${item.id}" data=6 dataIP=${item.id} id="fileInput6" style="display: none;" />
+                  <input type="file" class="files fileIP6${
+                    item.id
+                  }" data=6 dataIP=${item.id} id="fileInput6" style="display: none;" />
                 </div>
                 
              <div class="col-md-6 mb-3 ">
                   <label for="roomName" class="form-label">Room Name</label>
-                 <input type="text" class="form-control" id="roomName-${item.id}" name="roomName" value="${
-                   item.roomName
-                 }" required>  
+                 <input type="text" class="form-control" id="roomName-${
+                   item.id
+                 }" name="roomName" value="${item.roomName}" required>  
                  </div>
               </div>
 
@@ -206,23 +218,6 @@
       $(".roomsManage").html(
         `
         <div class="card top-selling overflow-auto">
-        <div class="filter">
-          <a class="icon" href="#" data-bs-toggle="dropdown"
-            ><i class="bi bi-three-dots"></i
-          ></a>
-          <ul
-            class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-          >
-            <li class="dropdown-header text-start">
-              <h6>Filter</h6>
-            </li>
-
-            <li><a class="dropdown-item" href="#">Today</a></li>
-            <li><a class="dropdown-item" href="#">This Month</a></li>
-            <li><a class="dropdown-item" href="#">This Year</a></li>
-          </ul>
-        </div>
-
         <div class="card-body pb-0">
           <h5 class="card-title">All Rooms <span>| View</span></h5>
 
@@ -376,7 +371,7 @@
     $(document).on("click", ".updateRoomButton", function () {
       var id = $(this).attr("data-id");
       var items = JSON.parse(localStorage.getItem("rooms")) || [];
-    
+
       // Lấy thông tin mới từ modal
       var updatedRoom = {
         id: id,
@@ -388,7 +383,7 @@
         price: $(`#price-${id}`).val(),
         rate: $(`#rate-${id}`).val(),
       };
-    
+
       // Lấy URL của 3 ảnh từ modal
       var imageURL1 = $(`#imagePreview4${id}`).attr("src");
       var imageURL2 = $(`#imagePreview5${id}`).attr("src");
@@ -396,23 +391,22 @@
       console.log(imageURL1);
       // Cập nhật mảng images
 
-      updatedRoom.images =[
-        {img: imageURL1},
-        {img: imageURL2},
-        {img: imageURL3},
-      ]
-    
+      updatedRoom.images = [
+        { img: imageURL1 },
+        { img: imageURL2 },
+        { img: imageURL3 },
+      ];
+
       // Cập nhật thông tin phòng trong localStorage
-        items[id] = updatedRoom;
-        localStorage.setItem("rooms", JSON.stringify(items));
-    
+      items[id] = updatedRoom;
+      localStorage.setItem("rooms", JSON.stringify(items));
+
       renderRooms();
-    
+
       $(`#update-${id}`).modal("hide");
       $("body").removeClass("modal-open");
       $(".modal-backdrop").remove();
     });
-    
 
     // deleting the room
     $(document).on("click", ".deleteRoomButton", function () {
@@ -447,9 +441,8 @@
       const data = $(this).attr("data");
       const dataItem = $(this).attr("data-item");
 
-      console.log(data,dataItem);
+      console.log(data, dataItem);
       $(`.fileIP${data}${dataItem}`).click();
-
     });
     $(".files").on("change", function (event) {
       var file1 = event.target.files[0];
@@ -458,11 +451,10 @@
       if (file1) {
         var fileSrc1 = URL.createObjectURL(file1);
         $(`#imagePreview${data}${dataIP}`).attr("src", fileSrc1).show();
-        $(`.plus-sign${data-3}`).hide();
+        $(`.plus-sign${data - 3}`).hide();
       }
       $(this).val("");
-    })
-
+    });
 
     // Event when the user selects a new file
     $("#fileInput1").on("change", function (event) {

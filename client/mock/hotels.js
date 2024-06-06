@@ -50,4 +50,7 @@ const hotels = [
     Phòng chờ ấm cúng có chương trình nhạc sống và nhà hàng sushi. Khách sạn có phục vụ bữa sáng. Các tiện nghi khác bao gồm nhà hàng sáng sủa, quán cà phê, quán bar tầng thượng và phòng chơi bi-a...`,
   },
 ];
-export default hotels;
+
+if (localStorage.getItem("hotels") === null) {
+  localStorage.setItem("hotels", JSON.stringify(hotels));
+}

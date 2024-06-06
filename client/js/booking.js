@@ -55,6 +55,7 @@
           name: name,
           email: email,
           phone: phone,
+          isReaded: false,
         };
         console.log(bookings);
         bookings.push(newBooking);

@@ -897,10 +897,6 @@ h6 {
   border: 0;
 }
 
-.dashboard .top-selling .table tbody td {
-  vertical-align: middle;
-}
-
 .dashboard .top-selling img {
   border-radius: 5px;
   max-width: 60px;

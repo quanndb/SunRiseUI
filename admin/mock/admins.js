@@ -1,3 +1,4 @@
+const ROLE = ["ADMIN", "USER", "EMPLOYEE"];
 const ADMINS = [
   {
     id: 0,
@@ -13,6 +14,8 @@ const ADMINS = [
     phone: "0974747474",
     email: "quanna@gmail.com",
     avatar: "",
+    gender: "Male",
+    role: ROLE[0],
   },
   {
     id: 1,
@@ -24,10 +27,12 @@ const ADMINS = [
     company: "NTQ Solutions Corporation",
     job: "Web Developer",
     country: "Hà Nội",
-    address: "Sơn Tây",
+    address: "Vĩnh Phúc",
     phone: "0974747475",
     email: "quanvm@gmail.com",
     avatar: "",
+    gender: "Male",
+    role: ROLE[0],
   },
   {
     id: 2,
@@ -39,10 +44,12 @@ const ADMINS = [
     company: "NTQ Solutions Corporation",
     job: "Web Developer",
     country: "Hà Nội",
-    address: "Sơn Tây",
+    address: "Đống Đa",
     phone: "0974747476",
     email: "kietnt@gmail.com",
     avatar: "",
+    gender: "Male",
+    role: ROLE[0],
   },
 ];
 

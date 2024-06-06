@@ -25,7 +25,6 @@ import employeesData from "/client/mock/employees.js";
           <input type="text" id="searchBox" class="form-control w-25" placeholder="Search...">
           </div>
 
-
           <!-- Bordered Tabs -->
           <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -40,7 +39,7 @@ import employeesData from "/client/mock/employees.js";
             </li>
 
             <li class="nav-item" role="presentation">
-              <button class="nav-link btnsTap" id="employee-tab" data-bs-toggle="tab" data-bs-target="#bordered-employees" type="button" role="tab" aria-controls="employees" 
+              <button class="nav-link btnsTap" id="employee-tab" data-bs-toggle="tab" data-bs-target="#bordered-employees" type="button" role="tab" aria-controls="employees"
               data-role="EMPLOYEE"
               aria-selected="false">Employees</button>
             </li>
@@ -58,7 +57,6 @@ import employeesData from "/client/mock/employees.js";
                       <th>Phone Number</th>
                       <th>Address</th>
                       <th>Role</th>
-
 
                       <th scope="col"><button type="button" class="btn btn-outline-success rounded-2  ms-4 addClassBtn"
                       data-bs-toggle="modal" data-bs-target="#add"
@@ -128,7 +126,6 @@ import employeesData from "/client/mock/employees.js";
         </div>
       </div>
 
-
       <!-- Modal add -->
                 <div class="modal fade" id="add" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -140,7 +137,6 @@ import employeesData from "/client/mock/employees.js";
                         <div class="modal-body">
                           <form id="addRoomForm">
 
-
                           <div class="row">
                               <div class="col-md-6 mb-3">
                                 <label for="username" class="form-label">UserName</label>
@@ -150,19 +146,18 @@ import employeesData from "/client/mock/employees.js";
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password1" name="password" required>
                               </div>
-                            </div> 
+                            </div>
 
                             <div class="row">
                               <div class="col-md-6 mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email1" name="email" required>  
+                                <input type="text" class="form-control" id="email1" name="email" required>
                               </div>
                               <div class="col-md-6 mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="number" class="form-control" id="phone1" name="phone" required>  
+                                <input type="number" class="form-control" id="phone1" name="phone" required>
                               </div>
                             </div>
-
 
                             <div class="row">
                               <div class="col-md-6 mb-3">
@@ -173,8 +168,7 @@ import employeesData from "/client/mock/employees.js";
                                 <label for="gender" class="form-label">Gender</label>
                                 <input type="text" class="form-control" id="gender1" name="gender" required>
                               </div>
-                            </div> 
-
+                            </div>
 
                             <div class="row">
                               <div class="col-md-6 mb-3">
@@ -185,11 +179,10 @@ import employeesData from "/client/mock/employees.js";
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address1" name="address" required>
                               </div>
-                            </div> 
-                              
+                            </div>
+
                           </form>
                         </div>
-
 
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -217,18 +210,18 @@ import employeesData from "/client/mock/employees.js";
             <td>${item.role}</td>
 
             <td>
-              <button type="button" class="btn btn-outline-warning rounded-2 editButton" data-bs-toggle="modal"
+              <button type="button" class="btn btn-outline-warning rounded-2 editButton"
+              data-bs-toggle="modal"
               target=${item.id}
-
-              data-bs-target="updateModal">
+              data-bs-target="#updateModal">
               <i class="bi bi-pencil-square" ></i>
               </button>
-              
+
               <button type="button" class="btn btn-outline-danger rounded-2
               deleteButton
               "
-              data-role="${item.role}" 
-              data-bs-toggle="modal" data-bs-target="#deleteModal" 
+              data-role="${item.role}"
+              data-bs-toggle="modal" data-bs-target="#deleteModal"
               data-id="${item.id}">
                 <i class="bi bi-trash-fill"></i>
               </button>
@@ -337,9 +330,9 @@ import employeesData from "/client/mock/employees.js";
         renderTableData(employeesContainer, employeesData);
       }
 
-      $("#add").modal("hide");
-      $("body").removeClass("modal-open");
-      $(".modal-backdrop").remove();
+      // $("#add").modal("hide");
+      // $("body").removeClass("modal-open");
+      // $(".modal-backdrop").remove();
     });
 
     //Update
@@ -348,11 +341,9 @@ import employeesData from "/client/mock/employees.js";
       var id = $(this).attr("data-id");
       var role = $(this).attr("data-role");
 
-      $("#updateModal").modal("show");
+      console.log(id, role);
 
-      $("#updateAccountButton").click(function () {
-
-      });
+      $("#updateAccountButton").click(function () {});
     });
 
     //updateAccount
@@ -363,7 +354,6 @@ import employeesData from "/client/mock/employees.js";
       var role = $(this).attr("data-role");
 
       $("#deleteModal").modal("show");
-
 
       $(".deleteAccountButton").click(function () {
         var id = $(this).attr("data-id");
@@ -382,9 +372,9 @@ import employeesData from "/client/mock/employees.js";
           renderTableData(employeesContainer, data);
         }
 
-        $(`#deleteModal`).modal("hide");
-        $("body").removeClass("modal-open");
-        $(".modal-backdrop").remove();
+        // $(`#deleteModal`).modal("hide");
+        // $("body").removeClass("modal-open");
+        // $(".modal-backdrop").remove();
       });
     });
   });

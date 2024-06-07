@@ -1,3 +1,6 @@
+if (localStorage.getItem("admins") == null) {
+  window.location.href = "/admin/pages-login.html";
+}
 const header = `
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">

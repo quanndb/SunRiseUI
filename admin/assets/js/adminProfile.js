@@ -1,5 +1,3 @@
-import ADMINS from "../../mock/admins.js";
-
 (function ($) {
   $(document).ready(function () {
     var item = JSON.parse(localStorage.getItem("admins"));
@@ -25,24 +23,17 @@ import ADMINS from "../../mock/admins.js";
                 class="card-body profile-card pt-4 d-flex flex-column align-items-center"
               >
                 <img
-                  src="${item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"}"
+                  src="${
+                    item.avatar
+                      ? item.avatar
+                      : "assets/img/initimageprofile.jpg"
+                  }"
                   alt="Profile"
                   class="rounded-circle"
                 />
                 <h2>${item.fullName}</h2>
                 <h3>${item.job}</h3>
-                <div class="social-links mt-2">
-                  <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                  <a href="#" class="facebook"
-                    ><i class="bi bi-facebook"></i
-                  ></a>
-                  <a href="#" class="instagram"
-                    ><i class="bi bi-instagram"></i
-                  ></a>
-                  <a href="#" class="linkedin"
-                    ><i class="bi bi-linkedin"></i
-                  ></a>
-                </div>
+
               </div>
             </div>
           </div>
@@ -91,7 +82,11 @@ import ADMINS from "../../mock/admins.js";
                         >
                         <div class="col-md-8 col-lg-9">
                           <img class="imageProfile" src="
-                          ${item.avatar ? item.avatar : "assets/img/initimageprofile.jpg"}
+                          ${
+                            item.avatar
+                              ? item.avatar
+                              : "assets/img/initimageprofile.jpg"
+                          }
                           " alt="Profile" />
                           <div class="pt-2">
                           <input type="file" id="fileInput" style="display: none;" />
@@ -331,7 +326,6 @@ import ADMINS from "../../mock/admins.js";
       // $(".imageProfile").attr("src", newAdminProfile.avatar);
       localStorage.setItem("admins", JSON.stringify(newAdminProfile));
       window.location.href = "/admin/users-profile.html";
-
     });
 
     //changePass

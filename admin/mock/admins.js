@@ -8,7 +8,7 @@ const ADMINS = [
     about:
       "Có khả năng làm việc được dưới áp lực công việc lớn, chăm chỉ, cần cù, sáng tạo, nỗ lực cống hiến hết mình",
     company: "NTQ Solutions Corporation",
-    job: "Web Developer",
+    job: "Administrator",
     country: "Hà Nội",
     address: "Sơn Tây",
     phone: "0974747474",
@@ -25,7 +25,7 @@ const ADMINS = [
     about:
       "Có khả năng làm việc được dưới áp lực công việc lớn, chăm chỉ, cần cù, sáng tạo, nỗ lực cống hiến hết mình",
     company: "NTQ Solutions Corporation",
-    job: "Web Developer",
+    job: "Administrator",
     country: "Hà Nội",
     address: "Vĩnh Phúc",
     phone: "0974747475",
@@ -42,7 +42,7 @@ const ADMINS = [
     about:
       "Có khả năng làm việc được dưới áp lực công việc lớn, chăm chỉ, cần cù, sáng tạo, nỗ lực cống hiến hết mình",
     company: "NTQ Solutions Corporation",
-    job: "Web Developer",
+    job: "Administrator",
     country: "Hà Nội",
     address: "Đống Đa",
     phone: "0974747476",

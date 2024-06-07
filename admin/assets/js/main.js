@@ -1,6 +1,7 @@
 if (localStorage.getItem("admins") == null) {
   window.location.href = "/admin/pages-login.html";
 }
+const role = JSON.parse(localStorage.getItem("admins")).role;
 const header = `
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -98,21 +99,9 @@ const sidebar = `
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="rooms.html">
-            <i class="bi bi-houses"></i>
-            <span>Rooms</span>
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="order.html">
             <i class="bi bi-newspaper"></i>
             <span>Orders</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="accountsManager.html">
-            <i class="bi bi-people"></i>
-            <span>Accounts</span>
           </a>
         </li>
         <li class="nav-item">
@@ -129,7 +118,24 @@ const sidebar = `
             <span>Profile</span>
           </a>
         </li>
-        <!-- End Profile Page Nav -->
+        ${
+          role === "ADMIN"
+            ? `        
+          <!-- End Profile Page Nav -->
+        <li class="nav-item">
+          <a class="nav-link" href="accountsManager.html">
+            <i class="bi bi-people"></i>
+            <span>Accounts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rooms.html">
+            <i class="bi bi-houses"></i>
+            <span>Rooms</span>
+          </a>
+        </li>`
+            : ""
+        }
       </ul>
     </aside>
 <!-- End Sidebar-->

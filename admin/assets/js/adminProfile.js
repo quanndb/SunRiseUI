@@ -135,8 +135,7 @@
                             class="form-control"
                             id="about"
                             style="height: 100px"
-                          >
-        ${item.about}</textarea
+                          >${item.about}</textarea
                           >
                         </div>
                       </div>

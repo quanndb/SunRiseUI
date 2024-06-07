@@ -178,7 +178,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-warning updateRoomButton" data-id="${
+                  <button type="button" class="btn btn-warning updateRoomButton" data-id="#${
                     item.id
                   }" data-images='${JSON.stringify(item.images)}'>
                   Update

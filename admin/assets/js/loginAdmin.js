@@ -1,5 +1,4 @@
-import ADMINS from "../../mock/admins.js";
-
+import ADMINS from "../../mock/admins.js"
 (function ($) {
   $(document).ready(function () {
     $("#login-btn").click(function (event) {

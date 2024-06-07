@@ -4,11 +4,7 @@ import employeesData from "/client/mock/employees.js";
 
 (function ($) {
   $(document).ready(function () {
-    console.log("Admins Data:", adminsData);
-    console.log("Users Data:", usersData);
-
     $(".accountsManager").append(`
-      
     `);
 
     function renderTableData(container, data) {
@@ -145,6 +141,13 @@ import employeesData from "/client/mock/employees.js";
         employeesData.push(newEmployee);
         renderTableData(employeesContainer, employeesData);
       }
+      $("#email1").val("");
+      $("#phone1").val("");
+      $("#fullname1").val("");
+      $("#address1").val("");
+      $("#username1").val("");
+      $("#password1").val("");
+      $("#gender1").val("");
     });
 
     // Update

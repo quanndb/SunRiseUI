@@ -148,7 +148,7 @@ const sidebar = `
     $("#sidebar-container").append(sidebar);
     var item = JSON.parse(localStorage.getItem("admins"));
 
-    $(".signOut").click(function () {
+    $(document).on("click", ".signOut", function () {
       localStorage.removeItem("admins");
       window.location.href = "/admin/pages-login.html";
     });
@@ -156,7 +156,6 @@ const sidebar = `
     $(document).on("click", ".toggle-sidebar-btn", function () {
       $("#main").toggleClass("mleft");
       $("#sidebar").toggleClass("hideSB");
-      console.log("ànlasf");
     });
 
     var rooms = JSON.parse(localStorage.getItem("rooms"));
@@ -171,7 +170,6 @@ const sidebar = `
       const day = today.getDate();
       return day;
     }
-
     // Hàm lấy tuần hiện tại
     function getCurrentWeek() {
       const today = new Date();
@@ -183,7 +181,6 @@ const sidebar = `
       );
       return { start: firstDayOfWeek.getDate(), end: lastDayOfWeek.getDate() };
     }
-
     // Hàm lấy tháng hiện tại
     function getCurrentMonth() {
       const today = new Date();
@@ -203,8 +200,6 @@ const sidebar = `
       };
     }
 
-    $("#header-container").append(header);
-    $("#sidebar-container").append(sidebar);
     var item = JSON.parse(localStorage.getItem("admins"));
 
     $(".profilee").append(`
@@ -260,16 +255,6 @@ const sidebar = `
                 </li>
               </ul>
       `);
-
-    $(".signOut").click(function () {
-      localStorage.removeItem("admins");
-      window.location.href = "/admin/pages-login.html";
-    });
-
-    $(document).on("click", ".toggle-sidebar-btn", function () {
-      $("#main").toggleClass("mleft");
-      $("#sidebar").toggleClass("hideSB");
-    });
 
     $(".counter").append(`      
       <div class="row">
@@ -411,7 +396,6 @@ const sidebar = `
       $("#bookingCount").text(bookingsThisDay.length + " Đơn");
       $("#bookingFilter").text("| Today");
     });
-
     $(".week").click(function (e) {
       e.preventDefault();
       const currentWeek = getCurrentWeek();
@@ -422,7 +406,6 @@ const sidebar = `
       $("#bookingCount").text(bookingsThisWeek.length + " Đơn");
       $("#bookingFilter").text("| Week");
     });
-
     $(".month").click(function (e) {
       e.preventDefault();
       const currentMonth = getCurrentMonth();
@@ -435,7 +418,6 @@ const sidebar = `
       $("#bookingCount").text(bookingsThisMonth.length + " Đơn");
       $("#bookingFilter").text("| Month");
     });
-
     // Profit action
     function calculateTotalProfit(payments) {
       return payments
@@ -451,10 +433,9 @@ const sidebar = `
         return paymentDay == currentDay;
       });
       const totalProfit = calculateTotalProfit(paymentsThisDay);
-      $("#paymentCount").text(totalProfit);
+      $("#paymentCount").text(totalProfit + "Triệu");
       $("#paymentFilter").text("| Today");
     });
-
     $(".week1").click(function (e) {
       e.preventDefault();
       const currentWeek = getCurrentWeek();
@@ -467,7 +448,6 @@ const sidebar = `
       $("#paymentFilter").text("| Week");
       console.log(totalProfit);
     });
-
     $(".month1").click(function (e) {
       e.preventDefault();
       const currentMonth = getCurrentMonth();
@@ -481,7 +461,6 @@ const sidebar = `
       $("#paymentCount").text(totalProfit + " Triệu");
       $("#paymentFilter").text("| Month");
     });
-
     // contact
     $(".processed").click(function (e) {
       e.preventDefault();
@@ -494,7 +473,6 @@ const sidebar = `
       $("#contactCount").text(count + " Tin Nhắn");
       $("#contactFilter").text("| Processed");
     });
-
     $(".unprocessed").click(function (e) {
       e.preventDefault();
       let count = 0;
@@ -506,7 +484,6 @@ const sidebar = `
       $("#contactCount").text(count + " Tin Nhắn");
       $("#contactFilter").text("| UnProcessed");
     });
-
     $(".allContact").click(function (e) {
       e.preventDefault();
 

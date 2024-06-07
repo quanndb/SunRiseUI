@@ -15,6 +15,7 @@ const ADMINS = [
     email: "quanna@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[0],
   },
   {
@@ -32,6 +33,7 @@ const ADMINS = [
     email: "quanvm@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[0],
   },
   {
@@ -49,6 +51,7 @@ const ADMINS = [
     email: "kietnt@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[0],
   },
   {
@@ -66,6 +69,7 @@ const ADMINS = [
     email: "quanna@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[2],
   },
   {
@@ -83,6 +87,7 @@ const ADMINS = [
     email: "quanvm@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[2],
   },
   {
@@ -100,6 +105,7 @@ const ADMINS = [
     email: "kietnt@gmail.com",
     avatar: "",
     gender: "Male",
+    isADM: true,
     role: ROLE[2],
   },
 ];

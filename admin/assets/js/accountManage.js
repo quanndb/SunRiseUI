@@ -23,7 +23,7 @@ import employeesData from "/client/mock/employees.js";
             <td>${item.gender}</td>
             <td>${item.phone}</td>
             <td>${item.address}</td>
-            <td>${item.role}</td>
+            <td>${item.isADM ? "ADMIN" : item.role}</td>
 
             <td>
               <button type="button" class="btn btn-outline-warning rounded-2 editButton"

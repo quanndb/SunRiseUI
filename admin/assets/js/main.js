@@ -113,7 +113,7 @@ const sidebar = `
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="payment.html">
             <i class="bi bi-cash-coin"></i>
             <span>Profit report</span>
           </a>
@@ -197,7 +197,6 @@ const sidebar = `
     });
 
     $(document).on("click", ".toggle-sidebar-btn", function () {
-      console.log($("#main"));
       $("#main").toggleClass("mleft");
       $("#sidebar").toggleClass("hideSB");
     });

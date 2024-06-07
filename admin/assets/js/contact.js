@@ -5,26 +5,6 @@
     var contacts = JSON.parse(localStorage.getItem("contacts"));
     var filteredContacts = contacts;
 
-    contacts.slice(contacts.length - 3, contacts.length).forEach((item) => {
-      $(".message-container").append(`
-      <li class="message-item overflow-hidden">
-      <a href="contact.html" class="d-flex flex-column text-nowrap" >
-        <h4>${item.name}</h4>
-        <p>
-          ${item.subject}
-        </p>
-      </a>
-    </li>
-    <hr />
-        `);
-    });
-    $(".num-message").html(
-      contacts.reduce((total, item) => {
-        //if isReaded = false then total plus 1
-        return total + (item.isReaded == false ? 1 : 0);
-      }, 0)
-    );
-
     // pagination start
     const contactsPerPage = 10;
     const maxVisiblePages = 3;

@@ -54,7 +54,7 @@
                     type="text"
                     id="order-filter"
                     class="form-control"
-                    placeholder="Find order"
+                    placeholder="Find payment"
                   />
                   <span
                     class="input-group-text bg-primary text-white"
@@ -63,20 +63,7 @@
                   ></span>
                 </div>
               </div>
-              <div class="d-flex col-3 align-items-center">
-                <label
-                  for="message-status"
-                  class="form-label me-3 mb-0 fs-6 fw-bold"
-                  >Status</label
-                >
-                <select class="form-select" id="message-status">
-                  <option value="All" selected>All</option>
-                  <option value="Waiting">Waiting</option>
-                  <option value="Delivered">Delivered</option>
-                  <option value="Cancelled">Canceled</option>
-                  <option value="Using">Using</option>
-                </select>
-              </div>
+              <div class="d-flex col-3 align-items-center"></div>
             </div>
             <!-- Filter end -->
 
@@ -134,7 +121,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="orderInfoModalLabel">
-                Order Information
+                Order Details
               </h5>
               <button
                 type="button"
@@ -150,9 +137,9 @@
                     <label for="orderID" class="form-label">Order ID</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control text-primary fw-bold"
                       id="orderID"
-                      placeholder="Enter order ID"
+                      placeholder="Enter Order ID"
                       disabled
                     />
                   </div>
@@ -162,107 +149,127 @@
                       type="text"
                       class="form-control"
                       id="name"
-                      placeholder="Enter name"
+                      placeholder="Enter Name"
+                      disabled
                     />
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      placeholder="Enter email"
-                    />
-                  </div>
                   <div class="col-md-6 mb-3">
                     <label for="phone" class="form-label">Phone</label>
                     <input
-                      type="tel"
+                      type="text"
                       class="form-control"
                       id="phone"
-                      placeholder="Enter phone number"
+                      placeholder="Enter Phone"
+                      disabled
                     />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="checkin" class="form-label">Check-in</label>
-                    <input type="date" class="form-control" id="checkin" />
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="checkout" class="form-label">Check-out</label>
-                    <input type="date" class="form-control" id="checkout" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="adult" class="form-label">Adults</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="adult"
-                      placeholder="Number of adults"
-                    />
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="child" class="form-label">Children</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="child"
-                      placeholder="Number of children"
-                    />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="branch" class="form-label">Branch</label>
-                    <select class="form-control" id="branch"></select>
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="room" class="form-label">Room</label>
-                    <select class="form-control" id="room"></select>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="room"
+                      placeholder="Enter Room"
+                      disabled
+                    />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 mb-3">
+                    <label for="checkIn" class="form-label">Check In</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="checkIn"
+                      disabled
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="checkOut" class="form-label">Check Out</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="checkOut"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="roomPrice" class="form-label">Room Price</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="roomPrice"
+                      placeholder="Enter Room Price"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="mealPrice" class="form-label">Meal Price</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="mealPrice"
+                      placeholder="Enter Meal Price"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="servicePrice" class="form-label"
+                      >Service Price</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="servicePrice"
+                      placeholder="Enter Service Price"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="incurredPrice" class="form-label"
+                      >Incurred Price</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="incurredPrice"
+                      placeholder="Enter Incurred Price"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
                     <label for="total" class="form-label">Total</label>
                     <input
                       type="number"
                       class="form-control"
                       id="total"
-                      placeholder="Enter total amount"
+                      placeholder="Enter Total"
+                      disabled
                     />
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="status" class="form-label">Status</label>
-                    <select class="form-control" id="status">
-                      <option value="Waiting">Waiting</option>
-                      <option value="Using">Using</option>
-                      <option value="Cancelled">Cancelled</option>
-                      <option value="Delivered">Delivered</option>
-                    </select>
+                  <div class="col-md-4 mb-3">
+                    <label for="paired" class="form-label">Paired</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="paired"
+                      placeholder="Enter Paired"
+                    />
                   </div>
-                </div>
-                <div class="mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea
-                    class="form-control"
-                    id="message"
-                    rows="3"
-                    placeholder="Enter message"
-                  ></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="note" class="form-label">Note</label>
-                  <textarea
-                    class="form-control"
-                    id="note"
-                    rows="3"
-                    placeholder="Enter note"
-                  ></textarea>
+                  <div class="col-md-4 mb-3">
+                    <label for="remain" class="form-label">Remain</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="remain"
+                      placeholder="Enter Remain"
+                      disabled
+                    />
+                  </div>
                 </div>
               </form>
             </div>
@@ -277,7 +284,6 @@
               <button
                 type="button"
                 class="btn btn-primary text-white"
-                target=""
                 id="saveOrder"
                 data-bs-dismiss="modal"
               >
@@ -294,8 +300,8 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/bookings.js"></script>
-    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/payments.js"></script>
+    <script src="assets/js/notifycation.js"></script>
     <script src="assets/js/roomsManage.js"></script>
     <script src="assets/js/hotel.js"></script>
   </body>

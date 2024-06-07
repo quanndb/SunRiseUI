@@ -2,35 +2,16 @@
   "use strict";
 
   $(document).ready(function () {
-    var bookings = JSON.parse(localStorage.getItem("bookings"));
-    var filteredBookings = bookings;
-
-    bookings.slice(bookings.length - 3, bookings.length).forEach((item) => {
-      $(".notifications-container").append(`
-                <li class="notification-item">
-                  <i class="bi bi-info-circle text-primary"></i>
-                  <a href="order.html">
-                    New order from
-                    <span class="text-primary fw-bold ">${item.name}</span>
-                  </a>
-                </li>
-                <hr />
-            `);
-    });
-    $(".num-orders").html(
-      bookings.reduce((total, item) => {
-        //if isReaded = false then total plus 1
-        return total + (item.isReaded == false ? 1 : 0);
-      }, 0)
-    );
+    var payments = JSON.parse(localStorage.getItem("payments"));
+    var filteredpayments = payments;
 
     // pagination start
-    const bookingsPerPage = 10;
+    const paymentsPerPage = 10;
     const maxVisiblePages = 3;
     let currentPage = 1;
     let filter = $("#message-status").val();
 
-    function createPagination(totalPages, bookings) {
+    function createPagination(totalPages, payments) {
       $(".pagination .page-item").not(".prev-page, .next-page").remove(); // Clear existing page items
       for (let i = 1; i <= totalPages; i++) {
         $(".next-page").before(
@@ -38,55 +19,46 @@
         );
       }
       $(".page-item").eq(1).addClass("active"); // Set the first page as active
-      updatePagination(bookings);
+      updatePagination(payments);
     }
 
-    function displayBookings(page, bookings) {
-      const start = (page - 1) * bookingsPerPage;
-      const end = page * bookingsPerPage;
-      const paginatedBookings = bookings.slice(start, end);
-      const status = {
-        Using: "bg-success",
-        Waiting: "bg-warning",
-        Cancelled: "bg-danger",
-        Delivered: "bg-info",
-      };
+    function displaypayments(page, payments) {
+      const start = (page - 1) * paymentsPerPage;
+      const end = page * paymentsPerPage;
+      const paginatedpayments = payments.slice(start, end);
 
       $(".order-data").empty();
-      paginatedBookings.forEach((item) => {
+      paginatedpayments.forEach((item) => {
         $(".order-data").append(`
-                    <tr class="${item.isReaded == false ? "unRead" : ""}"}>
-                      <th scope="row" >
-                        <a href="#" class="text-primary orderbtn"         
-                      data-bs-toggle="modal"
-                      target=${item.id}
-                      data-bs-target="#orderInfoModal">${item.orderID}</a>
-                      </th>
-                      <td>${item.name}</td>
-                      <td>${item.checkIn}</td>
-                      <td>${item.checkOut}</td>
-                      <td>${item.phone}</td>
-                      <td>${item.adult}</td>
-                      <td>${item.child}</td>
-                      <td>${item.branch}</td>
-                      <td>${item.room}</td>
-                      <td>${item.total} Tr</td>
-                      <td>${item.message}</td>
-                      <td>
-                        <span class="badge ${status[item.status]}">${
-          item.status
-        }</span>
-                      </td>
-                      <td>${item.note}</td>
-                    </tr>
-            `);
+                  <tr class="${item.isReaded == false ? "unRead" : ""}"}>
+                    <th scope="row" >
+                      <a href="#" class="text-primary orderbtn"         
+                    data-bs-toggle="modal"
+                    target=${item.id}
+                    data-bs-target="#orderInfoModal">${item.paymentID}</a>
+                    </th>
+                    <td>${item.name}</td>
+                    <td>${item.phone}</td>
+                    <td>${item.room}</td>
+                    <td>${item.checkIn}</td>
+                    <td>${item.checkOut}</td>
+                    <td>${item.roomPrice} Tr</td>
+                    <td>${item.mealPrice} Tr</td>
+                    <td>${item.servicePrice} Tr</td>
+                    <td>${item.incurredPrice} Tr</td>
+                    <td>${item.total} Tr</td>
+
+                    <td>${item.paired} Tr</td>
+                    <td>${(item.total - item.paired).toFixed(1)} Tr</td>
+                  </tr>
+          `);
       });
 
-      updatePagination(bookings);
+      updatePagination(payments);
     }
 
-    function updatePagination(bookings) {
-      const totalPages = Math.ceil(bookings.length / bookingsPerPage);
+    function updatePagination(payments) {
+      const totalPages = Math.ceil(payments.length / paymentsPerPage);
       const currentPageItem = $(".page-item.active");
       const currentIndex = $(".page-item").index(currentPageItem);
 
@@ -134,7 +106,7 @@
         currentPageItem.removeClass("active");
         prevPageItem.addClass("active");
         currentPage--;
-        displayBookings(currentPage, filteredBookings);
+        displaypayments(currentPage, filteredpayments);
       }
     });
 
@@ -147,7 +119,7 @@
         currentPageItem.removeClass("active");
         nextPageItem.addClass("active");
         currentPage++;
-        displayBookings(currentPage, filteredBookings);
+        displaypayments(currentPage, filteredpayments);
       }
     });
 
@@ -158,14 +130,14 @@
         $(".page-item").removeClass("active");
         pageItem.addClass("active");
         currentPage = parseInt($(this).text());
-        displayBookings(currentPage, filteredBookings);
+        displaypayments(currentPage, filteredpayments);
       }
     });
 
     // Initialize pagination
-    const totalPages = Math.ceil(filteredBookings.length / bookingsPerPage);
-    createPagination(totalPages, filteredBookings);
-    displayBookings(currentPage, filteredBookings);
+    const totalPages = Math.ceil(filteredpayments.length / paymentsPerPage);
+    createPagination(totalPages, filteredpayments);
+    displaypayments(currentPage, filteredpayments);
     // pagination end
 
     //format date
@@ -181,120 +153,93 @@
     }
     //control
 
-    $("#message-status").on("change", function () {
-      filter = $(this).val();
-      filteredBookings = bookings;
-      if (filter == "All") {
-        createPagination(
-          Math.ceil(filteredBookings.length / bookingsPerPage),
-          filteredBookings
-        );
-      }
-      if (filter == "Waiting") {
-        filteredBookings = bookings.filter((item) => item.status == "Waiting");
-        createPagination(
-          Math.ceil(filteredBookings.length / bookingsPerPage),
-          filteredBookings
-        );
-      }
-      if (filter == "Delivered") {
-        filteredBookings = bookings.filter(
-          (item) => item.status == "Delivered"
-        );
-        createPagination(
-          Math.ceil(filteredBookings.length / bookingsPerPage),
-          filteredBookings
-        );
-      }
-      if (filter == "Cancelled") {
-        filteredBookings = bookings.filter(
-          (item) => item.status == "Cancelled"
-        );
-        createPagination(
-          Math.ceil(filteredBookings.length / bookingsPerPage),
-          filteredBookings
-        );
-      }
-      if (filter == "Using") {
-        filteredBookings = bookings.filter((item) => item.status == "Using");
-        createPagination(
-          Math.ceil(filteredBookings.length / bookingsPerPage),
-          filteredBookings
-        );
-      }
-      displayBookings(1, filteredBookings);
-      currentPage = 1;
-    });
-
     $("#order-filter").on("keyup", function () {
       var value = $(this).val().toLowerCase();
-      filteredBookings = bookings.filter(function (item) {
+      filteredpayments = payments.filter(function (item) {
         return (
-          item.orderID.toString().toLowerCase().includes(value) ||
+          item.paymentID.toString().toLowerCase().includes(value) ||
           item.name.toLowerCase().includes(value) ||
-          item.email.toLowerCase().includes(value) ||
           item.phone.toLowerCase().includes(value) ||
-          item.adult.toString().toLowerCase().includes(value) ||
-          item.child.toString().toLowerCase().includes(value) ||
-          item.branch.toLowerCase().includes(value) ||
           item.room.toLowerCase().includes(value) ||
+          item.checkIn.toLowerCase().includes(value) ||
+          item.checkOut.toLowerCase().includes(value) ||
+          item.roomPrice.toString().toLowerCase().includes(value) ||
+          item.mealPrice.toString().toLowerCase().includes(value) ||
+          item.servicePrice.toString().toLowerCase().includes(value) ||
+          item.incurredPrice.toString().toLowerCase().includes(value) ||
           item.total.toString().toLowerCase().includes(value) ||
-          item.message.toLowerCase().includes(value) ||
-          item.status.toLowerCase().includes(value) ||
-          item.note.toLowerCase().includes(value)
+          item.paired.toString().toLowerCase().includes(value)
         );
       });
 
       createPagination(
-        Math.ceil(filteredBookings.length / bookingsPerPage),
-        filteredBookings
+        Math.ceil(filteredpayments.length / paymentsPerPage),
+        filteredpayments
       );
-      displayBookings(1, filteredBookings);
+      displaypayments(1, filteredpayments);
       currentPage = 1;
     });
 
     $(document).on("click", ".orderbtn", function () {
       var id = $(this).attr("target");
       $("#saveOrder").attr("target", id);
-      var currentOrder = bookings.filter((item) => item.id == id)[0];
-      if (currentOrder.isReaded === false) {
-        currentOrder.isReaded = true;
-      }
-      $("#orderID").val(currentOrder.orderID);
+      var currentOrder = payments.filter((item) => item.id == id)[0];
+
+      $("#orderID").val(currentOrder.paymentID);
       $("#name").val(currentOrder.name);
       $("#email").val(currentOrder.email);
       $("#phone").val(currentOrder.phone);
-      $("#checkin").val(formatDate(currentOrder.checkIn));
-      $("#checkout").val(formatDate(currentOrder.checkOut));
-      $("#adult").val(currentOrder.adult);
-      $("#child").val(currentOrder.child);
-      $("#branch").val(currentOrder.branch);
-      $("#room").val(currentOrder.room);
+      $("#checkIn").val(formatDate(currentOrder.checkIn));
+      $("#checkOut").val(formatDate(currentOrder.checkOut));
+      $("#roomPrice").val(currentOrder.roomPrice);
+      $("#mealPrice").val(currentOrder.mealPrice);
+      $("#servicePrice").val(currentOrder.servicePrice);
+      $("#incurredPrice").val(currentOrder.incurredPrice);
       $("#total").val(currentOrder.total);
-      $("#message").val(currentOrder.message);
-      $("#note").val(currentOrder.note);
-      $("#status").val(currentOrder.status);
+      $("#paired").val(currentOrder.paired);
+      $("#remain").val((currentOrder.total - currentOrder.paired).toFixed(1));
     });
 
     $("#saveOrder").on("click", function () {
       var id = $(this).attr("target");
-      var currentOrder = bookings.filter((item) => item.id == id)[0];
-      currentOrder.name = $("#name").val();
-      currentOrder.email = $("#email").val();
-      currentOrder.phone = $("#phone").val();
-      currentOrder.checkIn = formatDateReverse($("#checkin").val());
-      currentOrder.checkOut = formatDateReverse($("#checkout").val());
-      currentOrder.adult = $("#adult").val();
-      currentOrder.child = $("#child").val();
-      currentOrder.branch = $("#branch").val();
-      currentOrder.room = $("#room").val();
+      var currentOrder = payments.filter((item) => item.id == id)[0];
+      currentOrder.roomPrice = $("#roomPrice").val();
+      currentOrder.mealPrice = $("#mealPrice").val();
+      currentOrder.servicePrice = $("#servicePrice").val();
+      currentOrder.incurredPrice = $("#incurredPrice").val();
       currentOrder.total = $("#total").val();
-      currentOrder.message = $("#message").val();
-      currentOrder.note = $("#note").val();
-      currentOrder.status = $("#status").val();
-      displayBookings(currentPage, filteredBookings);
+      currentOrder.paired = $("#paired").val();
+      displaypayments(currentPage, filteredpayments);
 
-      localStorage.setItem("bookings", JSON.stringify(bookings));
+      localStorage.setItem("payments", JSON.stringify(payments));
+    });
+
+    function changeTotal() {
+      var roomPrice = Number($("#roomPrice").val());
+      var mealPrice = Number($("#mealPrice").val());
+      var servicePrice = Number($("#servicePrice").val());
+      var incurredPrice = Number($("#incurredPrice").val());
+      var total = roomPrice + mealPrice + servicePrice + incurredPrice;
+      $("#total").val(total.toFixed(1));
+      var paired = Number($("#paired").val());
+      var remain = Number($("#total").val()) - paired;
+      $("#remain").val(remain.toFixed(1));
+    }
+
+    $(document).on("keyup", "#roomPrice", function () {
+      changeTotal();
+    });
+    $(document).on("keyup", "#mealPrice", function () {
+      changeTotal();
+    });
+    $(document).on("keyup", "#servicePrice", function () {
+      changeTotal();
+    });
+    $(document).on("keyup", "#incurredPrice", function () {
+      changeTotal();
+    });
+    $(document).on("keyup", "#paired", function () {
+      changeTotal();
     });
   });
 })(jQuery);

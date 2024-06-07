@@ -6,6 +6,7 @@
   var paymentsData = JSON.parse(localStorage.getItem("payments")) || [];
   // Ensure localStorage data is initialized
   var storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
   $(document).ready(function () {
     $(".paymentsHistory").append(`
       <div class="table-responsive">
@@ -63,13 +64,12 @@
 
 
           
-          <td><span class="text-primary">${
-            item.total ||
+          <td><span class="text-primary">${(
             item.roomPrice +
-              item.mealPrice +
-              item.servicePrice +
-              item.incurredPrice
-          } Triệu</span></td>
+            item.mealPrice +
+            item.servicePrice +
+            item.incurredPrice
+          ).toFixed(1)} Triệu</span></td>
           </tr>
         `);
         $(".comment-modal").append(`

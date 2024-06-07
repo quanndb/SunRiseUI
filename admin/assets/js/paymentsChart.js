@@ -76,7 +76,7 @@ $(".typeReport").text("/Today");
   "use strict";
 
   $(document).ready(function () {
-    $(".today").on("click", function (e) {
+    $(".todayPayment").on("click", function (e) {
       e.preventDefault();
       $("#paymentsChart").html(
         `<canvas id="dailyChart" width="400" height="200"></canvas>`
@@ -85,7 +85,7 @@ $(".typeReport").text("/Today");
       $(".typeReport").text("/Today");
     });
 
-    $(".month").on("click", function (e) {
+    $(".monthPayment").on("click", function (e) {
       e.preventDefault();
       $("#paymentsChart").html(
         `<canvas id="monthlyChart" width="400" height="200"></canvas>`
@@ -98,7 +98,7 @@ $(".typeReport").text("/Today");
       $(".typeReport").text("/This month");
     });
 
-    $(".week").on("click", function (e) {
+    $(".weekPayment").on("click", function (e) {
       e.preventDefault();
       $("#paymentsChart").html(
         `<canvas id="weeklyChart" width="400" height="200"></canvas>`

@@ -161,29 +161,36 @@
           <!-- Reports -->
           <div class="col-12">
             <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"
-                  ><i class="bi bi-three-dots"></i
-                ></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><p class="dropdown-item today">Today</p></li>
-                  <li>
-                    <p class="dropdown-item week">This Week</p>
-                  </li>
-                  <li>
-                    <p class="dropdown-item month">This Month</p>
-                  </li>
-                </ul>
-              </div>
-
               <div class="card-body">
-                <h5 class="card-title">
-                  Reports <span class="typeReport">/Today</span>
-                </h5>
+                <div class="row">
+                  <h5 class="card-title col">
+                    Reports <span class="typeReport">/Today</span>
+                  </h5>
+
+                  <div
+                    class="filter col d-flex justify-content-end"
+                    style="height: fit-content"
+                  >
+                    <a class="icon" href="#" data-bs-toggle="dropdown"
+                      ><i class="bi bi-three-dots"></i
+                    ></a>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+                    >
+                      <li class="dropdown-header text-start">
+                        <h6>Filter</h6>
+                      </li>
+
+                      <li><p class="dropdown-item todayPayment">Today</p></li>
+                      <li>
+                        <p class="dropdown-item weekPayment">This Week</p>
+                      </li>
+                      <li>
+                        <p class="dropdown-item monthPayment">This Month</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <!-- chart start -->
 
                 <div id="paymentsChart">
@@ -204,9 +211,7 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/notifycation.js"></script>
     <script src="assets/js/paymentsChart.js"></script>
-
-    <script type="module" src="../client/mock/bookings.js"></script>
+    <script src="assets/js/notifycation.js"></script>
   </body>
 </html>

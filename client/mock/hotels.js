@@ -54,3 +54,5 @@ const hotels = [
 if (localStorage.getItem("hotels") === null) {
   localStorage.setItem("hotels", JSON.stringify(hotels));
 }
+
+export default hotels;

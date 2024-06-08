@@ -62,7 +62,7 @@
                     
                   <div class="row d-flex">
                   <div class="col-md-2 mb-3 mt-3">
-                  <div class="image-container" 
+                  <div class="image-container update" 
                   data=4
                   data-item=${item.id}
                   id="imageContainer4">
@@ -75,7 +75,7 @@
                   }" data=4 dataIP=${item.id} id="fileInput4" style="display: none;" />
                 </div>
                 <div class="col-md-2 mb-3 mt-3">
-                  <div class="image-container"
+                  <div class="image-container update"
                   data=5
                   data-item=${item.id}
                   id="imageContainer5">
@@ -88,7 +88,7 @@
                   }" data=5 dataIP=${item.id} id="fileInput5" style="display: none;" />
                 </div>
                 <div class="col-md-2 mb-3 mt-3">
-                  <div class="image-container" 
+                  <div class="image-container update" 
                   data=6
                   data-item=${item.id}
                   id="imageContainer6">
@@ -178,10 +178,11 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-warning updateRoomButton" data-id="#${
+                  <button type="button" data-bs-dismiss="modal" class="btn btn-warning updateRoomButton" data-id="${
                     item.id
                   }" data-images='${JSON.stringify(item.images)}'>
                   Update
+                  </button>
                   </div>
               </div>
             </div>
@@ -203,7 +204,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-danger deleteRoomButton" data-id="${
+                  <button type="button" data-bs-dismiss="modal" class="btn btn-danger deleteRoomButton" data-id="${
                     item.id
                   }">Yes</button>
                 </div>
@@ -307,7 +308,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-success" id="addRoomButton">Add</button>
+                          <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="addRoomButton">Add</button>
                         </div>
                       </div>
                     </div>
@@ -328,7 +329,7 @@
 
     renderRooms();
 
-    $("#addRoomButton").click(function () {
+    $(document).on("click", "#addRoomButton", function () {
       var items = JSON.parse(localStorage.getItem("rooms")) || [];
       const imageURL1 = getSelectedImageURL(1);
       const imageURL2 = getSelectedImageURL(2);
@@ -346,7 +347,7 @@
       }
 
       var newRoom = {
-        id: items.length + 1,
+        id: items.length + 1 + "",
         roomName: $("#roomName").val(),
         bedType: $("#bedType").val(),
         size: $("#size").val(),
@@ -362,9 +363,6 @@
       localStorage.setItem("rooms", JSON.stringify(items));
 
       renderRooms();
-      $("#add").modal("hide");
-      $("body").removeClass("modal-open");
-      $(".modal-backdrop").remove();
     });
 
     // Update Room
@@ -372,79 +370,66 @@
       var id = $(this).attr("data-id");
       var items = JSON.parse(localStorage.getItem("rooms")) || [];
 
+      const currentRoom = items.find((item) => item.id === id);
+
       // Lấy thông tin mới từ modal
-      var updatedRoom = {
-        id: id,
-        roomName: $(`#roomName-${id}`).val(),
-        bedType: $(`#bedType-${id}`).val(),
-        size: $(`#size-${id}`).val(),
-        description: $(`#description-${id}`).val(),
-        isActive: $(`#isActive-${id}`).val() === "true",
-        price: $(`#price-${id}`).val(),
-        rate: $(`#rate-${id}`).val(),
-      };
+      currentRoom.id = id;
+      currentRoom.roomName = $(`#roomName-${id}`).val();
+      currentRoom.bedType = $(`#bedType-${id}`).val();
+      currentRoom.size = $(`#size-${id}`).val();
+      currentRoom.description = $(`#description-${id}`).val();
+      currentRoom.isActive = $(`#isActive-${id}`).val() === "true";
+      currentRoom.price = $(`#price-${id}`).val();
+      currentRoom.rate = $(`#rate-${id}`).val();
 
       // Lấy URL của 3 ảnh từ modal
       var imageURL1 = $(`#imagePreview4${id}`).attr("src");
       var imageURL2 = $(`#imagePreview5${id}`).attr("src");
       var imageURL3 = $(`#imagePreview6${id}`).attr("src");
-      console.log(imageURL1);
       // Cập nhật mảng images
 
-      updatedRoom.images = [
+      currentRoom.images = [
         { img: imageURL1 },
         { img: imageURL2 },
         { img: imageURL3 },
       ];
 
       // Cập nhật thông tin phòng trong localStorage
-      items[id] = updatedRoom;
       localStorage.setItem("rooms", JSON.stringify(items));
 
       renderRooms();
-
-      $(`#update-${id}`).modal("hide");
-      $("body").removeClass("modal-open");
-      $(".modal-backdrop").remove();
     });
 
     // deleting the room
     $(document).on("click", ".deleteRoomButton", function () {
       var id = $(this).data("id");
+      console.log(id);
       var items = JSON.parse(localStorage.getItem("rooms")) || [];
-      items = items.filter((item) => item.id !== id);
+      console.log(items);
+      items = items.filter((item) => item.id != id);
       localStorage.setItem("rooms", JSON.stringify(items));
 
       renderRooms();
-      $(`#delete-${id}`).modal("hide");
-      $("body").removeClass("modal-open");
-      $(".modal-backdrop").remove();
     });
-
-    // Sử dụng event delegation cho sự kiện click của button mở modal
-    // $(document).on("click", ".editButton", function () {
-    //   var id = $(this).data("id");
-    //   $(`#exampleModal-${id}`).modal("show");
-    // });
 
     // Sự kiện khi nhấp vào
-    $("#imageContainer1").on("click", function () {
+    $(document).on("click", "#imageContainer1", function () {
       $("#fileInput1").click();
     });
-    $("#imageContainer2").on("click", function () {
+    $(document).on("click", "#imageContainer2", function () {
       $("#fileInput2").click();
     });
-    $("#imageContainer3").on("click", function () {
+    $(document).on("click", "#imageContainer3", function () {
       $("#fileInput3").click();
     });
-    $(".image-container").on("click", function () {
+
+    $(document).on("click", ".image-container.update", function () {
       const data = $(this).attr("data");
       const dataItem = $(this).attr("data-item");
-
       console.log(data, dataItem);
       $(`.fileIP${data}${dataItem}`).click();
     });
-    $(".files").on("change", function (event) {
+    $(document).on("change", ".files", function (event) {
       var file1 = event.target.files[0];
       var data = $(this).attr("data");
       var dataIP = $(this).attr("dataIP");
@@ -456,18 +441,16 @@
       $(this).val("");
     });
 
-    // Event when the user selects a new file
-    $("#fileInput1").on("change", function (event) {
-      var file1 = event.target.files[0];
-      if (file1) {
-        var fileSrc1 = URL.createObjectURL(file1);
-        $("#imagePreview1").attr("src", fileSrc1).show();
+    $(document).on("change", "#fileInput1", function (event) {
+      var file2 = event.target.files[0];
+      if (file2) {
+        var fileSrc2 = URL.createObjectURL(file2);
+        $("#imagePreview1").attr("src", fileSrc2).show();
         $(".plus-sign1").hide();
       }
       $(this).val("");
     });
-
-    $("#fileInput2").on("change", function (event) {
+    $(document).on("change", "#fileInput2", function (event) {
       var file2 = event.target.files[0];
       if (file2) {
         var fileSrc2 = URL.createObjectURL(file2);
@@ -476,12 +459,11 @@
       }
       $(this).val("");
     });
-
-    $("#fileInput3").on("change", function (event) {
-      var file3 = event.target.files[0];
-      if (file3) {
-        var fileSrc3 = URL.createObjectURL(file3);
-        $("#imagePreview3").attr("src", fileSrc3).show();
+    $(document).on("change", "#fileInput3", function (event) {
+      var file2 = event.target.files[0];
+      if (file2) {
+        var fileSrc2 = URL.createObjectURL(file2);
+        $("#imagePreview3").attr("src", fileSrc2).show();
         $(".plus-sign3").hide();
       }
       $(this).val("");

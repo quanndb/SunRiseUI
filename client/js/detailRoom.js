@@ -91,7 +91,7 @@
                 <div class="col-md-6">
                     Room Price from: 
                     <span class="col-md-3 text-primary fw-bold">
-                        ${room.price} <sup>đ</sup> / day
+                        ${room.price} <sup>Triệu vnđ</sup> / đêm
                     </span>
                 </div>
                 <a class="btn btn-sm btn-dark rounded py-2 px-4 ${

@@ -1,7 +1,9 @@
-import adminsData from "../../mock/admins.js";
-import usersData from "/client/mock/accounts.js";
-import employeesData from "/client/mock/employees.js";
-
+import adminsDatas from "../../mock/admins.js";
+import usersDatas from "/client/mock/accounts.js";
+import employeesDatas from "/client/mock/employees.js";
+var adminsData = adminsDatas;
+var usersData = usersDatas;
+var employeesData = employeesDatas;
 (function ($) {
   $(document).ready(function () {
     $(".accountsManager").append(`
@@ -24,7 +26,7 @@ import employeesData from "/client/mock/employees.js";
             <td>
               <button type="button" class="btn btn-outline-warning rounded-2 editButton"
               data-bs-toggle="modal"
-              target=${item.id}-${item.role}
+              target=${item.id}-${item.isADM ? "ADMIN" : item.role}
               data-bs-target="#updateModal">
               <i class="bi bi-pencil-square" ></i>
               </button>
@@ -33,7 +35,7 @@ import employeesData from "/client/mock/employees.js";
               deleteButton
               "
               data-bs-toggle="modal" data-bs-target="#deleteModal"
-              data-target=${item.id}-${item.role}
+              data-target=${item.id}-${item.isADM ? "ADMIN" : item.role}
 >
                 <i class="bi bi-trash-fill"></i>
               </button>
@@ -167,17 +169,12 @@ import employeesData from "/client/mock/employees.js";
 
       // Tìm tài khoản dựa trên ID và vai trò
       if (role === "USER") {
-        currentAccount = usersData.find(
-          (item) => parseInt(item.id) === parseInt(id)
-        );
+        currentAccount = usersData.find((item) => item.id === parseInt(id));
+        console.log(usersData);
       } else if (role === "ADMIN") {
-        currentAccount = adminsData.find(
-          (item) => parseInt(item.id) === parseInt(id)
-        );
+        currentAccount = adminsData.find((item) => item.id === parseInt(id));
       } else if (role === "EMPLOYEE") {
-        currentAccount = employeesData.find(
-          (item) => parseInt(item.id) === parseInt(id)
-        );
+        currentAccount = employeesData.find((item) => item.id === parseInt(id));
       }
 
       console.log(currentAccount);
@@ -255,21 +252,18 @@ import employeesData from "/client/mock/employees.js";
     $(".deleteAccountButton").click(function () {
       var id = $("#deleteAccount").attr("target");
       var role = $("#deleteAccount").attr("role");
-
+      console.log(id, role);
       if (role == "USER") {
-        var data = usersData.filter(
-          (item) => parseInt(item.id) !== parseInt(id)
-        );
+        var data = usersData.filter((item) => item.id !== parseInt(id));
+        usersData = data;
         renderTableData(usersContainer, data);
       } else if (role == "ADMIN") {
-        var data = adminsData.filter(
-          (item) => parseInt(item.id) !== parseInt(id)
-        );
+        var data = adminsData.filter((item) => item.id !== parseInt(id));
+        adminsData = data;
         renderTableData(adminsContainer, data);
       } else if (role == "EMPLOYEE") {
-        var data = employeesData.filter(
-          (item) => parseInt(item.id) !== parseInt(id)
-        );
+        var data = employeesData.filter((item) => item.id !== parseInt(id));
+        employeesData = data;
         renderTableData(employeesContainer, data);
       }
     });

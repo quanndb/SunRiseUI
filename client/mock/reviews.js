@@ -2,7 +2,7 @@ const reviews = [
   {
     id: 1,
     username: "quanndb",
-    img: "../client/img/team-1.jpg",
+    img: "../client/img/about-1.jpg",
     rate: 5,
     date: "2023-11-16 09:32",
     room: "Phòng vip 1",
@@ -23,7 +23,7 @@ const reviews = [
       {
         id: 2,
         username: "quanna",
-        img: "../client/img/team-2.jpg",
+        img: "../client/img/about-2.jpg",
         date: "2023-11-16 14:32",
         comment: "Đúng vậy.",
       },
@@ -32,7 +32,7 @@ const reviews = [
   {
     id: 2,
     username: "kiettk",
-    img: "../client/img/team-3.jpg",
+    img: "../client/img/about-2.jpg",
     rate: 4,
     date: "2023-11-17 09:00",
     room: "Phòng cao cấp 2",
@@ -54,7 +54,7 @@ const reviews = [
       {
         id: 2,
         username: "quanna",
-        img: "../client/img/team-2.jpg",
+        img: "../client/img/about-3.jpg",
         date: "2023-11-16 14:32",
         comment: "Haha.",
       },
@@ -63,7 +63,7 @@ const reviews = [
   {
     id: 3,
     username: "abcdeptrai",
-    img: "../client/img/team-4.jpg",
+    img: "../client/img/about-4.jpg",
     rate: 4,
     date: "2023-11-17 09:00",
     room: "Phòng sang trọng 1",
@@ -85,7 +85,7 @@ const reviews = [
       {
         id: 2,
         username: "quanna",
-        img: "../client/img/team-2.jpg",
+        img: "../client/img/about-1.jpg",
         date: "2023-11-16 14:32",
         comment: "Haha.",
       },

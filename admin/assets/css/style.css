@@ -7,12 +7,12 @@ body {
 }
 
 a {
-  color: #4154f1;
+  color: #4d480d !important;
   text-decoration: none;
 }
 
 a:hover {
-  color: #717ff5;
+  color: #4d480d51 !important;
   text-decoration: none;
 }
 
@@ -21,13 +21,15 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+label {
   font-family: "Nunito", sans-serif;
+  color: #4d480d !important;
 }
 
-/*--------------------------------------------------------------
+/*--
 # Main
---------------------------------------------------------------*/
+--*/
 #main {
   margin-top: 60px;
   padding: 20px 30px;
@@ -43,9 +45,14 @@ h6 {
 .unRead {
   background-color: #4153f131 !important;
 }
-/*--------------------------------------------------------------
+
+.active {
+  scale: 1.01;
+  color: #fea116 !important;
+}
+/*
 # Page Title
---------------------------------------------------------------*/
+--*/
 .pagetitle {
   margin-bottom: 10px;
 }
@@ -57,9 +64,9 @@ h6 {
   color: #012970;
 }
 
-/*--------------------------------------------------------------
+/*--
 # Override some default Bootstrap stylings
---------------------------------------------------------------*/
+--*/
 /* Dropdown menus */
 .dropdown-menu {
   border-radius: 4px;
@@ -135,42 +142,6 @@ h6 {
   0% {
     opacity: 0;
   }
-}
-
-/* Light Backgrounds */
-.bg-primary-light {
-  background-color: #f9edd6;
-  border-color: #cfe2ff;
-}
-
-.bg-secondary-light {
-  background-color: #e2e3e5;
-  border-color: #e2e3e5;
-}
-
-.bg-success-light {
-  background-color: #d1e7dd;
-  border-color: #d1e7dd;
-}
-
-.bg-danger-light {
-  background-color: #f8d7da;
-  border-color: #f8d7da;
-}
-
-.bg-warning-light {
-  background-color: #fff3cd;
-  border-color: #fff3cd;
-}
-
-.bg-info-light {
-  background-color: #cff4fc;
-  border-color: #cff4fc;
-}
-
-.bg-dark-light {
-  background-color: #d3d3d4;
-  border-color: #d3d3d4;
 }
 
 /* Card */
@@ -308,9 +279,12 @@ h6 {
   border-bottom: 2px solid #4154f1;
 }
 
-/*--------------------------------------------------------------
+.nav-link:hover {
+  color: #fea116 !important;
+}
+/*--
 # Header
---------------------------------------------------------------*/
+--*/
 .logo {
   line-height: 1;
 }
@@ -404,9 +378,9 @@ h6 {
   color: #012970;
 }
 
-/*--------------------------------------------------------------
+/*--
 # Header Nav
---------------------------------------------------------------*/
+--*/
 .header-nav ul {
   list-style: none;
 }
@@ -544,9 +518,9 @@ h6 {
   background-color: #f6f9ff;
 }
 
-/*--------------------------------------------------------------
+/*--
 # Sidebar
---------------------------------------------------------------*/
+--*/
 .sidebar {
   position: fixed;
   top: 60px;
@@ -555,7 +529,7 @@ h6 {
   width: 300px;
   z-index: 996;
   transition: all 0.3s;
-  padding: 20px;
+  padding: 20px 8px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
@@ -634,8 +608,8 @@ h6 {
   font-size: 15px;
   font-weight: 600;
   transition: 0.3;
-  background: #f6f9ff;
-  padding: 10px 15px;
+  background: #f3f3f3;
+  padding: 10px 35px;
   border-radius: 4px;
   color: rgb(83, 82, 82);
 }
@@ -650,17 +624,11 @@ h6 {
   background: #fff;
 }
 
-.sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
-}
-
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  scale: 1.05;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -705,9 +673,9 @@ h6 {
   background-color: #4154f1;
 }
 
-/*--------------------------------------------------------------
+/*--
 # Dashboard
---------------------------------------------------------------*/
+--*/
 /* Filter dropdown */
 .dashboard .filter {
   position: absolute;
@@ -769,8 +737,8 @@ h6 {
 }
 
 .dashboard .sales-card .card-icon {
-  color: #4154f1;
-  background: #f6f6fe;
+  color: #ffc800;
+  background: #f5f5d4;
 }
 
 .dashboard .revenue-card .card-icon {
@@ -779,109 +747,13 @@ h6 {
 }
 
 .dashboard .customers-card .card-icon {
-  color: #ff771d;
-  background: #ffecdf;
+  color: #1d92ff;
+  background: #c6d9fb;
 }
 
 /* Activity */
 .dashboard .activity {
   font-size: 14px;
-}
-
-.dashboard .activity .activity-item .activite-label {
-  color: #888;
-  position: relative;
-  flex-shrink: 0;
-  flex-grow: 0;
-  min-width: 64px;
-}
-
-.dashboard .activity .activity-item .activite-label::before {
-  content: "";
-  position: absolute;
-  right: -11px;
-  width: 4px;
-  top: 0;
-  bottom: 0;
-  background-color: #eceefe;
-}
-
-.dashboard .activity .activity-item .activity-badge {
-  margin-top: 3px;
-  z-index: 1;
-  font-size: 11px;
-  line-height: 0;
-  border-radius: 50%;
-  flex-shrink: 0;
-  border: 3px solid #fff;
-  flex-grow: 0;
-}
-
-.dashboard .activity .activity-item .activity-content {
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
-
-.dashboard .activity .activity-item:first-child .activite-label::before {
-  top: 5px;
-}
-
-.dashboard .activity .activity-item:last-child .activity-content {
-  padding-bottom: 0;
-}
-
-/* News & Updates */
-.dashboard .news .post-item + .post-item {
-  margin-top: 15px;
-}
-
-.dashboard .news img {
-  width: 80px;
-  float: left;
-  border-radius: 5px;
-}
-
-.dashboard .news h4 {
-  font-size: 15px;
-  margin-left: 95px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.dashboard .news h4 a {
-  color: #012970;
-  transition: 0.3s;
-}
-
-.dashboard .news h4 a:hover {
-  color: #4154f1;
-}
-
-.dashboard .news p {
-  font-size: 14px;
-  color: #777777;
-  margin-left: 95px;
-}
-
-/* Recent Sales */
-.dashboard .recent-sales {
-  font-size: 14px;
-}
-
-.dashboard .recent-sales .table thead {
-  background: #f6f6fe;
-}
-
-.dashboard .recent-sales .table thead th {
-  border: 0;
-}
-
-.dashboard .recent-sales .dataTable-top {
-  padding: 0 0 10px 0;
-}
-
-.dashboard .recent-sales .dataTable-bottom {
-  padding: 10px 0 0 0;
 }
 
 /* Top Selling */
@@ -902,9 +774,13 @@ h6 {
   max-width: 60px;
 }
 
-/*--------------------------------------------------------------
+tr:hover {
+  scale: 1.01;
+}
+
+/*--
 # Profie Page
---------------------------------------------------------------*/
+--*/
 .profile .profile-card img {
   max-width: 120px;
 }

@@ -1,5 +1,4 @@
-import hotels from "../mock/hotels.js";
-
+var hotels = JSON.parse(localStorage.getItem("hotels"));
 (function ($) {
   $(document).ready(function () {
     hotels.forEach((item, index) => {

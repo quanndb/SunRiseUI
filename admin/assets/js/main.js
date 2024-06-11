@@ -93,7 +93,7 @@ const sidebar = `
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="contact.html">
+          <a class="nav-link" href="contact.html">
             <i class="bi bi-chat-dots"></i>
             <span>Contact</span>
           </a>

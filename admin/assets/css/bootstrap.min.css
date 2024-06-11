@@ -15,7 +15,7 @@
   --bs-green: #198754;
   --bs-teal: #20c997;
   --bs-cyan: #0dcaf0;
-  --bs-white: #fff;
+  --bs-white: #e4e3e3;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
   --bs-primary: #fea116;
@@ -24,7 +24,7 @@
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
-  --bs-light: #f1f8ff;
+  --bs-light: #fdf8e3;
   --bs-dark: #0f172b;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -54,7 +54,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #666565;
-  background-color: #f1f8ff;
+  background-color: #fbf8f2;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

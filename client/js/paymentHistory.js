@@ -34,7 +34,8 @@
     // Render payments
 
     paymentsData.forEach((item) => {
-      if (item.accountID === userID) {
+      if (item.accountID === userID && item.paired != "0") {
+        console.log(item);
         $(".paymentData").append(`
         <tr>
         <td>
@@ -65,10 +66,10 @@
 
           
           <td><span class="text-primary">${(
-            item.roomPrice +
-            item.mealPrice +
-            item.servicePrice +
-            item.incurredPrice
+            Number(item.roomPrice) +
+            Number(item.mealPrice) +
+            Number(item.servicePrice) +
+            Number(item.incurredPrice)
           ).toFixed(1)} Triệu</span></td>
           </tr>
         `);

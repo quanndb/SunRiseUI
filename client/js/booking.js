@@ -15,6 +15,134 @@
     return `${parseInt(month, 10)}/${parseInt(day, 10)}/${year}`;
   }
   $(document).ready(function () {
+    if (JSON.parse(localStorage.getItem("user"))) {
+      $("#booking").html(`
+                        <form>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          placeholder="Your Name"
+                        />
+                        <label for="name">Your Name</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="phone"
+                          placeholder="Your Phone"
+                        />
+                        <label for="phone">Your Phone</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          placeholder="Your Email"
+                        />
+                        <label for="email">Your Email</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="form-floating date"
+                        id="date3"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          class="form-control datetimepicker-input"
+                          id="checkin"
+                          placeholder="Check In"
+                          data-target="#date3"
+                          data-toggle="datetimepicker"
+                        />
+                        <label for="checkin">Check In</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div
+                        class="form-floating date"
+                        id="date4"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="date"
+                          class="form-control datetimepicker-input"
+                          id="checkout"
+                          placeholder="Check Out"
+                          data-target="#date4"
+                          data-toggle="datetimepicker"
+                        />
+                        <label for="checkout">Check Out</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <select class="form-select" id="adult">
+                          <option value="1">Adult 1</option>
+                          <option value="2">Adult 2</option>
+                          <option value="3">Adult 3</option>
+                        </select>
+                        <label for="adult">Select Adult</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-floating">
+                        <select class="form-select" id="child">
+                          <option value="1">Child 1</option>
+                          <option value="2">Child 2</option>
+                          <option value="3">Child 3</option>
+                        </select>
+                        <label for="child">Select Child</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <select class="form-select" id="branch"></select>
+                        <label for="branch">Select A Branch</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <select class="form-select" id="room"></select>
+                        <label for="room">Select A Room</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-floating">
+                        <textarea
+                          class="form-control"
+                          placeholder="Special Request"
+                          id="message"
+                          style="height: 100px"
+                        ></textarea>
+                        <label for="message">Special Request</label>
+                      </div>
+                    </div>
+                    <div class="col-12 error-message text-danger"></div>
+                    <div class="col-12">
+                      <button
+                        class="btn btn-primary w-100 py-3"
+                        type="submit"
+                        id="submit-booking"
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </form>
+        `);
+    }
     $("#submit-booking").on("click", function (event) {
       event.preventDefault();
       var name = $("#name").val();

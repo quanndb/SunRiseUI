@@ -70,7 +70,7 @@ $("#paymentsChart").html(
   `<canvas id="dailyChart" width="400" height="200"></canvas>`
 );
 createChart($("#dailyChart")[0].getContext("2d"), dailyLabels, dailyData);
-$(".typeReport").text("/Today");
+$(".typeReport").text("/Daily");
 
 (function ($) {
   "use strict";
@@ -82,7 +82,7 @@ $(".typeReport").text("/Today");
         `<canvas id="dailyChart" width="400" height="200"></canvas>`
       );
       createChart($("#dailyChart")[0].getContext("2d"), dailyLabels, dailyData);
-      $(".typeReport").text("/Today");
+      $(".typeReport").text("/Daily");
     });
 
     $(".monthPayment").on("click", function (e) {

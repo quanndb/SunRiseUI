@@ -628,9 +628,6 @@ label {
   scale: 1.05;
 }
 
-.sidebar-nav .nav-link:hover i {
-}
-
 .sidebar-nav .nav-link .bi-chevron-down {
   margin-right: 0;
   transition: transform 0.2s ease-in-out;

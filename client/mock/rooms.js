@@ -12,15 +12,15 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-0.jpg",
+        img: "../client/img/room-0.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-1.jpg",
+        img: "../client/img/room-1.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-2.jpg",
+        img: "../client/img/room-2.jpg",
       },
     ],
     price: "1.00",
@@ -38,17 +38,18 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-1.jpg",
+        img: "../client/img/room-1.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-2.jpg",
+        img: "../client/img/room-2.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-3.jpg",
+        img: "../client/img/room-3.jpg",
       },
-    ],    price: "1.50",
+    ],
+    price: "1.50",
   },
   {
     id: "2",
@@ -63,17 +64,18 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-2.jpg",
+        img: "../client/img/room-2.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-3.jpg",
+        img: "../client/img/room-3.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-4.jpg",
+        img: "../client/img/room-4.jpg",
       },
-    ],    price: "2.00",
+    ],
+    price: "2.00",
   },
   {
     id: "3",
@@ -88,17 +90,18 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-3.jpg",
+        img: "../client/img/room-3.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-4.jpg",
+        img: "../client/img/room-4.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-5.jpg",
+        img: "../client/img/room-5.jpg",
       },
-    ],    price: "2.50",
+    ],
+    price: "2.50",
   },
   {
     id: "4",
@@ -113,17 +116,18 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-4.jpg",
+        img: "../client/img/room-4.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-5.jpg",
+        img: "../client/img/room-5.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-6.jpg",
+        img: "../client/img/room-6.jpg",
       },
-    ],    price: "3.00",
+    ],
+    price: "3.00",
   },
   {
     id: "5",
@@ -138,17 +142,18 @@ const ROOMS = [
     images: [
       {
         id: "0",
-        img: "/client/img/room-5.jpg",
+        img: "../client/img/room-5.jpg",
       },
       {
         id: "1",
-        img: "/client/img/room-6.jpg",
+        img: "../client/img/room-6.jpg",
       },
       {
         id: "2",
-        img: "/client/img/room-7.jpg",
+        img: "../client/img/room-7.jpg",
       },
-    ],    price: "3.50",
+    ],
+    price: "3.50",
   },
 ];
 if (localStorage.getItem("rooms") == null) {

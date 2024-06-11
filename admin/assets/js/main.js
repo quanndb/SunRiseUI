@@ -1,319 +1,494 @@
-/**
-* Template Name: NiceAdmin
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Updated: Apr 7 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+if (localStorage.getItem("admins") == null) {
+  window.location.href = "/admin/pages-login.html";
+}
+const role = JSON.parse(localStorage.getItem("admins")).role;
+const header = `
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <span class="d-block">SunRise</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+      </div>
+      <!-- End Logo -->
 
-(function() {
-  "use strict";
+      <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-bell"></i>
+              <span class="badge bg-primary badge-number num-orders"></span> </a
+            ><!-- End Notification Icon -->
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+            <ul
+              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications"
+            >
+              <li class="dropdown-header">
+                You have <span class="num-orders fw-bold text-primary"></span> new
+                notifications
+              </li>
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    if (all) {
-      select(el, all).forEach(e => e.addEventListener(type, listener))
-    } else {
-      select(el, all).addEventListener(type, listener)
-    }
-  }
+              <div class="notifications-container"></div>
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+              <li class="dropdown-footer">
+                <a href="order.html" class="text-primary"
+                  >Show all notifications</a
+                >
+              </li>
+            </ul>
+            <!-- End Notification Dropdown Items -->
+          </li>
+          <!-- End Notification Nav -->
 
-  /**
-   * Sidebar toggle
-   */
-  if (select('.toggle-sidebar-btn')) {
-    on('click', '.toggle-sidebar-btn', function(e) {
-      select('body').classList.toggle('toggle-sidebar')
-    })
-  }
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+              <i class="bi bi-chat-left-text"></i>
+              <span class="badge bg-primary badge-number num-message"
+                >3</span
+              > </a
+            ><!-- End Messages Icon -->
 
-  /**
-   * Search bar toggle
-   */
-  if (select('.search-bar-toggle')) {
-    on('click', '.search-bar-toggle', function(e) {
-      select('.search-bar').classList.toggle('search-bar-show')
-    })
-  }
+            <ul
+              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages"
+            >
+              <li class="dropdown-header">
+                You have
+                <span class="num-message text-primary fw-bold">3</span> new
+                messages
+                <a href="#"></a>
+              </li>
+              <hr />
+              <!-- message start -->
+              <div class="message-container"></div>
+              <!-- message end -->
+              <li class="text-center">
+                <a href="contact.html" class="text-decoration-underline"
+                  >View All</a
+                >
+              </li>
+            </ul>
+            <!-- End Messages Dropdown Items -->
+          </li>
+          <!-- End Messages Nav -->
 
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+          <li class="nav-item dropdown pe-3 profilee">
+           
+          </li>
+          <!-- End Profile Nav -->
+        </ul>
+      </nav>
+      <!-- End Icons Navigation -->
+    </header>
+    <!-- End Header -->
+`;
+const sidebar = `
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-grid"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">
+            <i class="bi bi-chat-dots"></i>
+            <span>Contact</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="order.html">
+            <i class="bi bi-newspaper"></i>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="payment.html">
+            <i class="bi bi-cash-coin"></i>
+            <span>Profit report</span>
+          </a>
+        </li>
+        <!-- End Dashboard Nav -->
 
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
-  let selectHeader = select('#header')
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
-      } else {
-        selectHeader.classList.remove('header-scrolled')
-      }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
-  }
+        <li class="nav-item">
+          <a class="nav-link" href="users-profile.html">
+            <i class="bi bi-person"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        ${
+          role === "ADMIN"
+            ? `        
+          <!-- End Profile Page Nav -->
+        <li class="nav-item">
+          <a class="nav-link" href="accountsManager.html">
+            <i class="bi bi-people"></i>
+            <span>Accounts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rooms.html">
+            <i class="bi bi-houses"></i>
+            <span>Rooms</span>
+          </a>
+        </li>`
+            : ""
+        }
+      </ul>
+    </aside>
+<!-- End Sidebar-->
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
+`;
 
-  /**
-   * Initiate tooltips
-   */
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
+(function ($) {
+  $(document).ready(function () {
+    $("#header-container").append(header);
+    $("#sidebar-container").append(sidebar);
+    var item = JSON.parse(localStorage.getItem("admins"));
 
-  /**
-   * Initiate quill editors
-   */
-  if (select('.quill-editor-default')) {
-    new Quill('.quill-editor-default', {
-      theme: 'snow'
+    $(document).on("click", ".signOut", function () {
+      localStorage.removeItem("admins");
+      window.location.href = "/admin/pages-login.html";
     });
-  }
 
-  if (select('.quill-editor-bubble')) {
-    new Quill('.quill-editor-bubble', {
-      theme: 'bubble'
+    $(document).on("click", ".toggle-sidebar-btn", function () {
+      $("#main").toggleClass("mleft");
+      $("#sidebar").toggleClass("hideSB");
     });
-  }
 
-  if (select('.quill-editor-full')) {
-    new Quill(".quill-editor-full", {
-      modules: {
-        toolbar: [
-          [{
-            font: []
-          }, {
-            size: []
-          }],
-          ["bold", "italic", "underline", "strike"],
-          [{
-              color: []
-            },
-            {
-              background: []
-            }
-          ],
-          [{
-              script: "super"
-            },
-            {
-              script: "sub"
-            }
-          ],
-          [{
-              list: "ordered"
-            },
-            {
-              list: "bullet"
-            },
-            {
-              indent: "-1"
-            },
-            {
-              indent: "+1"
-            }
-          ],
-          ["direction", {
-            align: []
-          }],
-          ["link", "image", "video"],
-          ["clean"]
-        ]
-      },
-      theme: "snow"
+    var rooms = JSON.parse(localStorage.getItem("rooms"));
+    var payments = JSON.parse(localStorage.getItem("payments"));
+    var hotels = JSON.parse(localStorage.getItem("hotels"));
+    var reviews = JSON.parse(localStorage.getItem("reviews"));
+    var contacts = JSON.parse(localStorage.getItem("contacts"));
+    var bookings = JSON.parse(localStorage.getItem("bookings"));
+
+    function getCurrentDate() {
+      const today = new Date();
+      const day = today.getDate();
+      return day;
+    }
+    // Hàm lấy tuần hiện tại
+    function getCurrentWeek() {
+      const today = new Date();
+      const firstDayOfWeek = new Date(
+        today.setDate(today.getDate() - today.getDay())
+      );
+      const lastDayOfWeek = new Date(
+        today.setDate(today.getDate() - today.getDay() + 6)
+      );
+      return { start: firstDayOfWeek.getDate(), end: lastDayOfWeek.getDate() };
+    }
+    // Hàm lấy tháng hiện tại
+    function getCurrentMonth() {
+      const today = new Date();
+      const firstDayOfMonth = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        1
+      );
+      const lastDayOfMonth = new Date(
+        today.getFullYear(),
+        today.getMonth() + 1,
+        0
+      );
+      return {
+        start: firstDayOfMonth.getDate(),
+        end: lastDayOfMonth.getDate(),
+      };
+    }
+
+    var item = JSON.parse(localStorage.getItem("admins"));
+
+    $(".profilee").append(`
+      <a
+                class="nav-link nav-profile d-flex align-items-center pe-0"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="${
+                    item.avatar
+                      ? item.avatar
+                      : "assets/img/initimageprofile.jpg"
+                  }"
+                  alt="Profile"
+                  class="rounded-circle"
+                />
+                <span class="d-none d-md-block dropdown-toggle ps-2"
+                  >${item.fullName}</span
+                > </a
+              ><!-- End Profile Iamge Icon -->
+  
+              <ul
+                class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile"
+              >
+                <li class="dropdown-header">
+                  <h6>${item.fullName}</h6>
+                  <span>${item.job}</span>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+  
+                <li>
+                  <a
+                    class="dropdown-item d-flex align-items-center"
+                    href="users-profile.html"
+                  >
+                    <i class="bi bi-person"></i>
+                    <span>My Profile</span>
+                  </a>
+                </li>
+  
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+  
+                <li>
+                  <button type="button" class="dropdown-item d-flex align-items-center signOut">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Sign Out</span>
+                  </button>
+                </li>
+              </ul>
+      `);
+
+    $(".counter").append(`      
+      <div class="row">
+        <!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"
+                ><i class="bi bi-three-dots"></i
+              ></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+                <li><a class="dropdown-item all" href="#">All</a></li>
+                <li>
+                <li><a class="dropdown-item today" href="#">Today</a></li>
+                <li><a class="dropdown-item week" href="#">This Week</a></li>
+                <li><a class="dropdown-item month" href="#">This Month</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Bookings <span id="bookingFilter">| All</span></h5>
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="bi bi-journal-text"></i>
+                </div>
+                <div class="ps-3">
+                  <h6 id="bookingCount">${bookings.length} Đơn</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card -->
+
+
+
+
+        <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"
+                  ><i class="bi bi-three-dots"></i
+                ></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start" >
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item today1" href="#">Today</a></li>
+                  <li><a class="dropdown-item week1" href="#">This Week</a></li>
+                  <li><a class="dropdown-item month1" href="#">This Month</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Profit <span id="paymentFilter">| Today</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="bi bi-cash-coin"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 id="paymentCount">38.5 Triệu</h6>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Revenue Card -->
+
+
+
+
+
+
+
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card customers-card">
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"
+                  ><i class="bi bi-three-dots"></i
+                ></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+<li><a class="dropdown-item allContact" href="#">All</a></li>
+                  <li><a class="dropdown-item processed" href="#">Processed</a></li>
+                  <li><a class="dropdown-item unprocessed" href="#">Unprocessed</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Contacts <span id="contactFilter">| All</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 id="contactCount"> ${contacts.length} Tin nhắn</h6>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Customers Card -->
+          
+      </div>
+    `);
+    $(".all").click(function (e) {
+      e.preventDefault();
+
+      $("#bookingCount").text(bookings.length + " Đơn");
+      $("#bookingFilter").text("| All");
     });
-  }
+    $(".today").click(function (e) {
+      e.preventDefault();
+      const currentDay = getCurrentDate();
+      const bookingsThisDay = bookings.filter((booking) => {
+        const bookingDay = new Date(booking.checkIn).getDate();
+        return bookingDay == currentDay;
+      });
+      $("#bookingCount").text(bookingsThisDay.length + " Đơn");
+      $("#bookingFilter").text("| Today");
+    });
+    $(".week").click(function (e) {
+      e.preventDefault();
+      const currentWeek = getCurrentWeek();
+      const bookingsThisWeek = bookings.filter((booking) => {
+        const bookingDay = new Date(booking.checkIn).getDate();
+        return bookingDay >= currentWeek.start && bookingDay <= currentWeek.end;
+      });
+      $("#bookingCount").text(bookingsThisWeek.length + " Đơn");
+      $("#bookingFilter").text("| Week");
+    });
+    $(".month").click(function (e) {
+      e.preventDefault();
+      const currentMonth = getCurrentMonth();
+      const bookingsThisMonth = bookings.filter((booking) => {
+        const bookingDay = new Date(booking.checkIn).getDate();
+        return (
+          bookingDay >= currentMonth.start && bookingDay <= currentMonth.end
+        );
+      });
+      $("#bookingCount").text(bookingsThisMonth.length + " Đơn");
+      $("#bookingFilter").text("| Month");
+    });
+    // Profit action
+    function calculateTotalProfit(payments) {
+      return payments
+        .reduce((total, payment) => total + Number(payment.total), 0)
+        .toFixed(2);
+    }
 
-  /**
-   * Initiate TinyMCE Editor
-   */
+    $(".today1").click(function (e) {
+      e.preventDefault();
+      const currentDay = getCurrentDate();
+      const paymentsThisDay = payments.filter((payment) => {
+        const paymentDay = new Date(payment.createdDate).getDate();
+        return paymentDay == currentDay;
+      });
+      const totalProfit = calculateTotalProfit(paymentsThisDay);
+      $("#paymentCount").text(totalProfit + "Triệu");
+      $("#paymentFilter").text("| Today");
+    });
+    $(".week1").click(function (e) {
+      e.preventDefault();
+      const currentWeek = getCurrentWeek();
+      const paymentsThisWeek = payments.filter((payment) => {
+        const paymentDay = new Date(payment.createdDate).getDate();
+        return paymentDay >= currentWeek.start && paymentDay <= currentWeek.end;
+      });
+      const totalProfit = calculateTotalProfit(paymentsThisWeek);
+      $("#paymentCount").text(totalProfit + " Triệu");
+      $("#paymentFilter").text("| Week");
+      console.log(totalProfit);
+    });
+    $(".month1").click(function (e) {
+      e.preventDefault();
+      const currentMonth = getCurrentMonth();
+      const paymentsThisMonth = payments.filter((payment) => {
+        const paymentDay = new Date(payment.createdDate).getDate();
+        return (
+          paymentDay >= currentMonth.start && paymentDay <= currentMonth.end
+        );
+      });
+      const totalProfit = calculateTotalProfit(paymentsThisMonth);
+      $("#paymentCount").text(totalProfit + " Triệu");
+      $("#paymentFilter").text("| Month");
+    });
+    // contact
+    $(".processed").click(function (e) {
+      e.preventDefault();
+      let count = 0;
+      contacts.map((item) => {
+        if (item.isReaded) count++;
+        return count;
+      });
 
-  const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+      $("#contactCount").text(count + " Tin Nhắn");
+      $("#contactFilter").text("| Processed");
+    });
+    $(".unprocessed").click(function (e) {
+      e.preventDefault();
+      let count = 0;
+      contacts.map((item) => {
+        if (item.isReaded === false) count++;
+        return count;
+      });
 
-  tinymce.init({
-    selector: 'textarea.tinymce-editor',
-    plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion',
-    editimage_cors_hosts: ['picsum.photos'],
-    menubar: 'file edit view insert format tools table help',
-    toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl",
-    autosave_ask_before_unload: true,
-    autosave_interval: '30s',
-    autosave_prefix: '{path}{query}-{id}-',
-    autosave_restore_when_empty: false,
-    autosave_retention: '2m',
-    image_advtab: true,
-    link_list: [{
-        title: 'My page 1',
-        value: 'https://www.tiny.cloud'
-      },
-      {
-        title: 'My page 2',
-        value: 'http://www.moxiecode.com'
-      }
-    ],
-    image_list: [{
-        title: 'My page 1',
-        value: 'https://www.tiny.cloud'
-      },
-      {
-        title: 'My page 2',
-        value: 'http://www.moxiecode.com'
-      }
-    ],
-    image_class_list: [{
-        title: 'None',
-        value: ''
-      },
-      {
-        title: 'Some class',
-        value: 'class-name'
-      }
-    ],
-    importcss_append: true,
-    file_picker_callback: (callback, value, meta) => {
-      /* Provide file and text for the link dialog */
-      if (meta.filetype === 'file') {
-        callback('https://www.google.com/logos/google.jpg', {
-          text: 'My text'
-        });
-      }
+      $("#contactCount").text(count + " Tin Nhắn");
+      $("#contactFilter").text("| UnProcessed");
+    });
+    $(".allContact").click(function (e) {
+      e.preventDefault();
 
-      /* Provide image and alt text for the image dialog */
-      if (meta.filetype === 'image') {
-        callback('https://www.google.com/logos/google.jpg', {
-          alt: 'My alt text'
-        });
-      }
-
-      /* Provide alternative source and posted for the media dialog */
-      if (meta.filetype === 'media') {
-        callback('movie.mp4', {
-          source2: 'alt.ogg',
-          poster: 'https://www.google.com/logos/google.jpg'
-        });
-      }
-    },
-    height: 600,
-    image_caption: true,
-    quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-    noneditable_class: 'mceNonEditable',
-    toolbar_mode: 'sliding',
-    contextmenu: 'link image table',
-    skin: useDarkMode ? 'oxide-dark' : 'oxide',
-    content_css: useDarkMode ? 'dark' : 'default',
-    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+      $("#contactCount").text(bookings.length + " Tin Nhắn");
+      $("#contactFilter").text("| All");
+    });
   });
-
-  /**
-   * Initiate Bootstrap validation check
-   */
-  var needsValidation = document.querySelectorAll('.needs-validation')
-
-  Array.prototype.slice.call(needsValidation)
-    .forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-
-  /**
-   * Initiate Datatables
-   */
-  const datatables = select('.datatable', true)
-  datatables.forEach(datatable => {
-    new simpleDatatables.DataTable(datatable, {
-      perPageSelect: [5, 10, 15, ["All", -1]],
-      columns: [{
-          select: 2,
-          sortSequence: ["desc", "asc"]
-        },
-        {
-          select: 3,
-          sortSequence: ["desc"]
-        },
-        {
-          select: 4,
-          cellClass: "green",
-          headerClass: "red"
-        }
-      ]
-    });
-  })
-
-  /**
-   * Autoresize echart charts
-   */
-  const mainContainer = select('#main');
-  if (mainContainer) {
-    setTimeout(() => {
-      new ResizeObserver(function() {
-        select('.echart', true).forEach(getEchart => {
-          echarts.getInstanceByDom(getEchart).resize();
-        })
-      }).observe(mainContainer);
-    }, 200);
-  }
-
-})();
+})(jQuery);

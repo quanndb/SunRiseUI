@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>SunRise || Admin</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="header-container"></div>
+
+    <div id="sidebar-container"></div>
+
+    <main id="main" class="main accountsManager">
+      <!-- End Page Title -->
+
+      <div class="card">
+        <div class="card-body">
+          <div class="pagetitle">
+            <h1>Account</h1>
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="accountsManager.html">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Account manage</li>
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Search Box -->
+          <div class="d-flex justify-content-end">
+            <input
+              type="text"
+              id="searchBox"
+              class="form-control w-25"
+              placeholder="Search..."
+            />
+          </div>
+
+          <!-- Bordered Tabs -->
+          <ul
+            class="nav nav-tabs nav-tabs-bordered"
+            id="borderedTab"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active btnsTap"
+                id="admins-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#bordered-home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+                data-role="ADMIN"
+              >
+                Admins
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link btnsTap"
+                id="users-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#bordered-profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+                data-role="USER"
+              >
+                Users
+              </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link btnsTap"
+                id="employee-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#bordered-employees"
+                type="button"
+                role="tab"
+                aria-controls="employees"
+                data-role="EMPLOYEE"
+                aria-selected="false"
+              >
+                Employees
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content pt-2" id="borderedTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="bordered-home"
+              role="tabpanel"
+              aria-labelledby="admins-tab"
+            >
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>STT #</th>
+                      <th>Email</th>
+                      <th>Full Name</th>
+                      <th>Gender</th>
+                      <th>Phone Number</th>
+                      <th>Address</th>
+                      <th>Role</th>
+
+                      <th scope="col">
+                        <button
+                          type="button"
+                          class="btn btn-outline-success rounded-2 ms-4 addClassBtn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#add"
+                          data-role="ADMIN"
+                        >
+                          <i class="bi bi-plus"></i>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="adminsData"></tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="bordered-profile"
+              role="tabpanel"
+              aria-labelledby="users-tab"
+            >
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>STT #</th>
+                      <th>Email</th>
+                      <th>Full Name</th>
+                      <th>Gender</th>
+                      <th>Phone Number</th>
+                      <th>Address</th>
+                      <th>Role</th>
+
+                      <th scope="col">
+                        <button
+                          type="button"
+                          class="btn btn-outline-success rounded-2 ms-4 addClassBtn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#add"
+                          data-role="USER"
+                        >
+                          <i class="bi bi-plus"></i>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="usersData"></tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="bordered-employees"
+              role="tabpanel"
+              aria-labelledby="employee-tab"
+            >
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>STT #</th>
+                      <th>Email</th>
+                      <th>Full Name</th>
+                      <th>Gender</th>
+                      <th>Phone Number</th>
+                      <th>Address</th>
+                      <th>Role</th>
+
+                      <th scope="col">
+                        <button
+                          type="button"
+                          class="btn btn-outline-success rounded-2 ms-4 addClassBtn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#add"
+                          data-role="EMPLOYEE"
+                        >
+                          <i class="bi bi-plus"></i>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="employeesData"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- End Bordered Tabs -->
+        </div>
+      </div>
+
+      <!-- Modal add -->
+      <div
+        class="modal fade"
+        id="add"
+        tabindex="-1"
+        aria-labelledby="addModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addModalLabel">Add New Account</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="addRoomForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="username" class="form-label">UserName</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username1"
+                      name="username"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password1"
+                      name="password"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email1"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="phone1"
+                      name="phone"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fullname1"
+                      name="fullname"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="gender1"
+                      name="gender"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="role1"
+                      name="role"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address1"
+                      name="address"
+                      required
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-success addClassBtn"
+                data-role="ADMIN"
+                id="addAccountButton"
+                data-bs-dismiss="modal"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal add End -->
+
+      <!-- Modal update -->
+      <div
+        class="modal fade"
+        id="updateModal"
+        tabindex="-1"
+        aria-labelledby="updateModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateModalLabel">Update Account</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="updateAccountForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="full name" class="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fullname"
+                      name="fullname"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="gender"
+                      name="gender"
+                      value=""
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                      value=""
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      name="address"
+                      value=""
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="role"
+                      name="role"
+                      value=""
+                      readonly
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning updateAccountButton"
+                id="updateAccount"
+                target=""
+                data-bs-dismiss="modal"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal update End -->
+
+      <!-- Modal Delete -->
+      <div
+        class="modal fade"
+        id="deleteModal"
+        tabindex="-1"
+        aria-labelledby="deleteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Xác nhận xóa!</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Bạn chắc chắn muốn xóa tài khoản này?</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger deleteAccountButton"
+                data-bs-dismiss="modal"
+                data-target=""
+                id="deleteAccount"
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal End Delete -->
+    </main>
+    <!-- End #main -->
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/notifycation.js"></script>
+    <script type="module" src="assets/js/accountManage.js"></script>
+  </body>
+</html>

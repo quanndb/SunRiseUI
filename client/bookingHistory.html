@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SunRise - Hotel</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark px-0">
+      <div class="row gx-0">
+        <div class="col-lg-3 bg-dark">
+          <a
+            href="index.html"
+            class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center"
+          >
+            <h1 class="m-0 text-primary text-uppercase p-3">SunRise</h1>
+          </a>
+        </div>
+        <div class="col-lg-9"></div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Profile Start -->
+    <div class="container rounded bg-white mt-5 mb-5''">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a
+            class="nav-link bg-white"
+            aria-current="page"
+            href="userProfile.html"
+            >Thông tin cá nhân
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active bg-white" href="#"
+            >Xem lịch sử đặt phòng
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bg-white" href="paymentHistory.html"
+            >Xem lịch sử thanh toán
+          </a>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-md-12 border-right p-3">
+          <!-- Orders Table-->
+          <div class="p-3 bookingTable"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Profile End -->
+
+    <!-- Footer Start -->
+    <div class="footer"></div>
+    <!-- Footer End-->
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script type="module" src="js/main.js"></script>
+    <script src="mock/payments.js"></script>
+
+    <script src="js/login.js"></script>
+    <script type="module" src="js/bookingHistory.js"></script>
+  </body>
+</html>

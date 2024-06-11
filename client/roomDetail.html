@@ -20,6 +20,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
+
   <body>
     <div class="container-xxl bg-white p-0">
       <!-- Spinner Start -->
@@ -38,7 +39,7 @@
       <!-- Spinner End -->
 
       <!-- Header Start -->
-      <div class="header" page-index="2"></div>
+      <div class="header"></div>
       <!-- Header End -->
 
       <!-- Page Header Start -->
@@ -69,24 +70,24 @@
       <!-- Page Header End -->
 
       <!-- Room Start -->
-      <div class="container-xxl py-5 mb-5">
+      <div class="container-xxl py-5 roomDetail mb-5">
         <div class="container">
           <div class="text-center">
             <h6 class="section-title text-center text-primary text-uppercase">
-              Our Rooms
+              Room Detail
             </h6>
             <h1 class="mb-5">
               Explore Our <span class="text-primary text-uppercase">Rooms</span>
             </h1>
           </div>
-          <div class="row g-4 rooms justify-content-center"></div>
+          <div class="row g-4" id="roomDetailContainer"></div>
         </div>
       </div>
       <!-- Room End -->
 
       <!-- Footer Start -->
       <div class="footer"></div>
-      <!-- Footer end-->
+      <!-- Footer End-->
     </div>
 
     <!-- JavaScript Libraries -->
@@ -95,7 +96,7 @@
 
     <!-- Template Javascript -->
     <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/roomsResolver.js"></script>
+    <script type="module" src="js/detailRoom.js"></script>
     <script src="js/login.js"></script>
   </body>
 </html>
